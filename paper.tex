@@ -1,0 +1,149 @@
+\documentclass[
+  11pt,
+  fleqn
+]{article}
+% [fleqn] left-aligns all equations
+
+\input{preamble/preamble}
+
+% For writing/planning purposes: show paragraph level in TOC
+\setcounter{secnumdepth}{2}
+
+\addbibresource{bibliography.bib}
+\graphicspath{{fig/}}
+
+\title{Guidance on choosing ordinal outcomes and endpoints for clinical trials}
+\author{Leon Di Stefano, Katherine Lee, etc\ldots}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+Ordinal outcomes have become increasingly prominent in clinical
+resarch, particularly following the COVID-19 pandemic.
+
+Some advantages of ordinal outcomes are that they can
+\begin{enumerate}
+  \item Provide more information that binary outcomes, including
+    composite outcomes, allowing for more efficient and ethical studies
+  \item Allow for the incorporation of safety events into one's
+    primary outcome and therefore account for many different aspects
+    of benefit/harm. At the same time, they do not require a
+    fully-specified utility function (which may differ from patient
+    to patient or require more extensive development and validation)
+  \item Allow for the combination of discrete and continous outcome
+    measures (for example a numerical quality of life scale with
+    death as the worst outcome)
+  \item Allow for the incorporation of intercurrent events into one's
+    primary outcome, avoiding complexities of alternative estimand strategies
+    like principal stratum estimands (particular for truncating
+    events like death) while having more statistical efficiency than
+    binary composite estimands (see point (1))
+\end{enumerate}
+
+The goal of this manuscript is to serve as a guide for clinicians and trialists
+in choosing/developing ordinal outcomes for their studies. We consider both
+both the outcome itself (the data recorded on each patient) and effect
+measures or ``endpoints'' (the metric used to compare patient groups).
+
+We want to distinguish \emph{choosing} an outcome/effect
+measure from \emph{validating} the outcome/effect measure using
+external data. This paper is about choosing the outcome and effect
+measure. In practice choosing an outcome and effect measure and
+validating that outcome and effect measure in pre-trial data will be
+an iterative process.
+
+\section{Desiderata for outcomes and effect measures}
+
+We want outcomes that
+\begin{enumerate}
+  \item reflect patient benefit and harm
+  \item capture sufficient information to efficiently discriminate
+    among better- and
+    worse-off patients.
+\end{enumerate}
+
+We want effect measures that
+\begin{enumerate}
+  \item capture decision-relevant differences in patient benefit and harm
+  \item are easy to interpret and to translate into practical recommendations
+\end{enumerate}
+
+\section{Techniques for constructing ordinal outcomes}
+
+\subsection{Tie-breaking can be used to fine-grain ordinal outcomes}
+
+Two kinds: crossing, and tie breaking within a level (overriding).
+
+\subsection{Category probabilities affect precision and power mostly via the
+probability of the largest category}
+
+\subsection{Ordinal outcomes can incorporate longitudinal or
+time-to-event information}
+
+Distinguish between ``state'' and ``trajectory'' variables.
+
+Trajectory variables, including times-to-event, summarize over a timecourse.
+
+These can be incorporated into an ordinal outcome. For example ``worst pSOFA
+while hospitalized until day 28''.
+
+Arguably most existing time-to-event analyses are in fact analyses of an
+ordinal outcome. The Cox model treats time-to-event as an ordinal outcome:
+because (1) the baseline hazard is not modelled, (2) the model itself is
+invariant to monotone rescalings of the time axis, and (3) the (partial)
+likelihood (ignoring ties) depends only on the ranks of the data (i.e., is a
+marginal likelihood).
+
+\section{Guidelines for choosing estimands or effect measures}
+
+\subsection{Model-based versus nonparametric effect measures}
+
+Model-based: common odds ratio; common stopping ratio or common
+continuation ratio.
+
+Nonparametric or model-free measures: probabilistic index, win ratio, win odds,
+...
+
+Both of these can be considered ``estimands'', insofar as we consider.
+
+Nonparametric effect measures may appear to be assumption-free. However
+\begin{itemize}
+  \item Assumptions don't need to hold exactly for the model-based
+    effect measures to make sense
+  \item The model-free methods also may not make sense, if for
+    example there are nonmonotone effects across cutpoints
+  \item Model-based methods have additional advantages, for example
+    the possibility of adjustment for covariates.
+
+    When additivity approximately holds, this yields a ``best of both
+    worlds'' effect measure that is
+    personalized effect measure that is yet reportable as a single
+    number. Risk ratio for vaccine efficacy (being approximately
+    constant as a function of baseline risk/age) as an example.
+\end{itemize}
+
+Simulations show a typically very strong association between
+proportional odds ratios and probabilistic indices [cite Harrell].
+
+Reducing to a composite binary outcome
+\begin{itemize}
+  \item Based on a specific cutpoint, e.g. ``hospitalization or worse''
+  \item Based on a quantile in a reference group; for example,
+    ``worse than the median outcome under standard care''
+\end{itemize}
+
+One point of view is that one would ``ideally'' analyze ordinal
+outcomes by reporting the associated expected utilities [cite Berry
+talk; example of utility-weighted Rankin scale].
+
+\subsection{Generalized pairwise comparisons (``win'' methods)
+  are implicitly about constructing
+ordinal outcomes, in a way that is compatible with right-censoring}
+
+\end{document}
