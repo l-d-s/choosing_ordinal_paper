@@ -12,7 +12,7 @@
 \addbibresource{bibliography.bib}
 \graphicspath{{fig/}}
 
-\title{Guidance on choosing ordinal outcomes and endpoints for clinical trials}
+\title{Advice on developing ordinal outcomes and endpoints for clinical trials}
 \author{Leon Di Stefano, Katherine Lee, etc\ldots}
 \date{\today}
 
@@ -21,6 +21,7 @@
 \maketitle
 
 \tableofcontents
+\newpage
 
 \section{Introduction}
 
@@ -51,12 +52,13 @@ in choosing/developing ordinal outcomes for their studies. We consider both
 both the outcome itself (the data recorded on each patient) and effect
 measures or ``endpoints'' (the metric used to compare patient groups).
 
-We want to distinguish \emph{choosing} an outcome/effect
-measure from \emph{validating} the outcome/effect measure using
-external data. This paper is about choosing the outcome and effect
-measure. In practice choosing an outcome and effect measure and
-validating that outcome and effect measure in pre-trial data will be
-an iterative process.
+We want to distinguish \emph{choosing} an outcome/effect measure from
+\emph{validating} the outcome/effect measure using external data. This paper is
+about the first task, choosing (or constructing) the outcome and effect
+measure. In practice choosing an outcome and effect measure and validating that
+outcome and effect measure in pre-trial data will be an iterative process; our
+focus is on the ``positive'' side of the process, namely coming up
+with, and tweaking, proposed outcomes and effect measures.
 
 \section{Desiderata for outcomes and effect measures}
 
@@ -70,62 +72,150 @@ We want outcomes that
 
 We want effect measures that
 \begin{enumerate}
-  \item capture decision-relevant differences in patient benefit and harm
+  \item capture decision-relevant differences in distributions of
+    patient benefit and harm
   \item are easy to interpret and to translate into practical recommendations
 \end{enumerate}
 
 \section{Techniques for constructing ordinal outcomes}
 
-\subsection{Tie-breaking can be used to fine-grain ordinal outcomes}
+\subsection{Tie-breaking can be used to combine and fine-grain ordinal outcomes}
 
-Two kinds: crossing, and tie breaking within a level (overriding).
+Two basic operations:
+\begin{enumerate}
+  \item Complete tie-breaking of $A$ by
+    $B$ (lexicographic order)
+  \item Tie-breaking of $A$ by $B$ \emph{within a
+    specific level $a$ of $A$} (equivalently, ``overriding'' $B$ by $A$) is the
+    combination of these.
+\end{enumerate}
+
+Tie breaking within a level (2) is a combination of complete
+tie-breaking (1) and merging.
+
+\subsubsection{Incorporating longitudinal or time-to-event information}
+
+Distinguish between ``state'' and ``trajectory'' variables. State
+variables summarize patient outcomes at a particular moment in time.
+Trajectory variables, including times-to-event, summarize patient
+state over a timecourse.
+
+Trajectory variables can be incorporated into an ordinal outcome. For example
+(from PASSPORT) ``worst pSOFA while hospitalized until day 28''.
+
+Incorporating trajectory variables into an ordinal outcome may seem unnatural.
+But arguable most existing time-to-event analyses are in fact analyses of an
+ordinal outcome. The Cox model for time-to-event data treats time as ordinal:
+because (1) the baseline hazard is not modelled, (2) the model itself is
+invariant to monotone rescalings of the time axis, and (3) the (partial)
+likelihood (ignoring ties) depends only on the ranks of the data (i.e., is a
+marginal likelihood). The Cox model is essentially an ordinal
+stopping ratio model with complementary log-log link. (Perhaps a
+difference is censoring.)
+
+\subsection{Coarsening (composite outcomes) can be used to avoid
+directly comparing levels}
+
+This comes from the experience of presenting the PASSPORT outcome:
+clinicians thought that including, for example, "digit amputation
+before day 28" and "ECMO before day 28" within the same level of an
+ordinal outcome meant assuming that the two outcomes have the
+\emph{same} utility. In fact it represents \emph{refusing to compare}
+their utilities.
 
 \subsection{Category probabilities affect precision and power mostly via the
 probability of the largest category}
 
-\subsection{Ordinal outcomes can incorporate longitudinal or
-time-to-event information}
+Theory of \citep{} says that the relative efficiency (variance) of an
+unadjusted treatment comparison using an ordinal versus continuous outcome in
+the proportional odds model is given by $1 - \sum \overline p_c^3$ where
+$\overline p_c$ is the marginal probability (averaged over control and
+experimental groups) of outcome category $c$.
 
-Distinguish between ``state'' and ``trajectory'' variables.
+Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
+categories when the probabilities are all equal: $\overline p_c = 1/C$.
 
-Trajectory variables, including times-to-event, summarize over a timecourse.
+We have simulation results and some math to show that the value of $\sum_c
+\overline p_c^3$ is \emph{essentially a function of the largest category
+probability} $\overline{p_{\max}} = \max \overline{p_c}$. See \ref{fig:p_max}
+for an illustration.
 
-These can be incorporated into an ordinal outcome. For example ``worst pSOFA
-while hospitalized until day 28''.
+\begin{figure}
+  \includegraphics[width=6in]{p_max_controls_efficiency.png}
+  \caption{Bounds on the relative efficiency of an ordinal outcome
+    compared to its continuous counterpart as a function of the maximum
+  category probability.}
+  \label{fig:p_max}
+\end{figure}
 
-Arguably most existing time-to-event analyses are in fact analyses of an
-ordinal outcome. The Cox model treats time-to-event as an ordinal outcome:
-because (1) the baseline hazard is not modelled, (2) the model itself is
-invariant to monotone rescalings of the time axis, and (3) the (partial)
-likelihood (ignoring ties) depends only on the ranks of the data (i.e., is a
-marginal likelihood).
+Thus simple advice is: for statistical efficiency, try to make the proportion
+of patients in the largest category small.
 
 \section{Guidelines for choosing estimands or effect measures}
 
-\subsection{Model-based versus nonparametric effect measures}
+The basic problem: we want to compare two distributions (control and
+experimental groups) over ordinal outcomes with a single number.
 
-Model-based: common odds ratio; common stopping ratio or common
-continuation ratio.
+In general this represents a loss of information. Let's say the
+outcome has $L$ levels. Then the distributions in each
+arm is specified by $L-1$ numbers (for the first $L-1$ probabilities,
+  or cumulative logits, or stopping ratio logits--reflecting the
+sum-to-1 constraint on probability distributions) and so the
+\emph{difference} between the distributions is also specified by
+$L-1$ numbers (for example the differences between the cumulative
+logits, or logit stopping probabilities).
+
+An effect measure thus represents a way to collapse these $L-1$
+numbers into one.
+
+\subsection{Model-based effect measures}
+
+Model-based: common odds ratio; common stopping ratio or common continuation
+ratio.
+
+What they have in common: the effect measure is a byproduct of fitting a model
+to the data. The model typically assumes that a certain pattern holds in the
+outcome distributions across groups so that the differences in distributions
+can be described by a single number (with more than two groups, $G-1$ numbers).
+
+\subsection{Model-free effect measures}
 
 Nonparametric or model-free measures: probabilistic index, win ratio, win odds,
-...
+etc.
 
-Both of these can be considered ``estimands'', insofar as we consider.
+\subsubsection{Connection with win win/generalized pairwise comparison
+methods}
+
+Win/generalized pairwise comparison methods are implicitly about (1)
+constructing ordinal outcomes through tie-breaking (2) in a way that is
+compatible with right-censoring (3) estimating nonparametric effect
+measures (4) defining comparisons of two distributions by averaging
+over draws from the distributions as if they were independent
+(pairwise comparisons).
+
+\subsection{Comparing model-based and nonparametric effect measures}
+
+Both of these can be considered ``estimands'', insofar as we consider
+the model-based effect measures to be defined by the estimate from
+the best-fitting model in the population.
 
 Nonparametric effect measures may appear to be assumption-free. However
+
 \begin{itemize}
   \item Assumptions don't need to hold exactly for the model-based
     effect measures to make sense
   \item The model-free methods also may not make sense, if for
     example there are nonmonotone effects across cutpoints
+  \item Model-free methods don't define a common scale for comparing
+    more than two interventions. For example, model-free effect
+    measures can be nontransitive
   \item Model-based methods have additional advantages, for example
     the possibility of adjustment for covariates.
 
     When additivity approximately holds, this yields a ``best of both
     worlds'' effect measure that is
     personalized effect measure that is yet reportable as a single
-    number. Risk ratio for vaccine efficacy (being approximately
-    constant as a function of baseline risk/age) as an example.
+    number.
 \end{itemize}
 
 Simulations show a typically very strong association between
@@ -142,8 +232,11 @@ One point of view is that one would ``ideally'' analyze ordinal
 outcomes by reporting the associated expected utilities [cite Berry
 talk; example of utility-weighted Rankin scale].
 
-\subsection{Generalized pairwise comparisons (``win'' methods)
-  are implicitly about constructing
-ordinal outcomes, in a way that is compatible with right-censoring}
+We should distinguish between effect measures used for
+\emph{analysis} and for \emph{reporting}. It may make sense to report
+the probabilistic index even if the analysis is undertaken using a
+proportional odds model.
+
+\section{Conclusions}
 
 \end{document}
