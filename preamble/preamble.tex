@@ -1,31 +1,37 @@
 % fonts
 
-\usepackage[T1]{fontenc} % Apparently this https://tex.stackexchange.com/questions/287312/font-not-loadable-metric-data-not-found-or-bad
+\usepackage[T1]{fontenc} % Apparently this
+% https://tex.stackexchange.com/questions/287312/font-not-loadable-metric-data-not-found-or-bad
 \usepackage[full]{textcomp}
 \usepackage[final,expansion=alltext]{microtype}
+\usepackage{csquotes} % suppress warning from `babel`
 \usepackage[english]{babel}
 \usepackage[fleqn]{mathtools}
 \usepackage[cal=boondoxo]{mathalpha} % mathcal
 
-\usepackage{amsthm} % gives proof environment: https://www.overleaf.com/learn/latex/Theorems_and_proofs
+\usepackage{amsthm} % gives proof environment:
+% https://www.overleaf.com/learn/latex/Theorems_and_proofs
 
 \usepackage{newtxtext}
-% \usepackage{txfonts} % See https://tex.stackexchange.com/questions/444243/symbols-not-showing-up
+% \usepackage{txfonts} % See
+% https://tex.stackexchange.com/questions/444243/symbols-not-showing-up
 
 % These need to be after newtxtext
 \usepackage[varqu,varl]{inconsolata} % sans serif typewriter
 % \usepackage{cabin} % sans serif - ugly
 
-\usepackage[bigdelims,vvarbb]{newtxmath} % bb from STIX % "should be loaded AFTER the text font" - https://mirrors.mit.edu/CTAN/fonts/newtx/doc/newtxdoc.pdf 
+\usepackage[bigdelims,vvarbb]{newtxmath} % bb from STIX % "should be
+% loaded AFTER the text font" -
+% https://mirrors.mit.edu/CTAN/fonts/newtx/doc/newtxdoc.pdf
 
 % geometry of the page
 
 \usepackage[
-    % top=1in,
-    % bottom=1in,
-    % left=1in,
-    % right=1in
-    ]{geometry}
+  % top=1in,
+  % bottom=1in,
+  % left=1in,
+  % right=1in
+]{geometry}
 
 % paragraph spacing
 
@@ -46,24 +52,24 @@
 
 \usepackage{booktabs}
 
-
 \usepackage[
-    style=authoryear-comp,
-    natbib=true,
-    % refsection=chapter,
-    url=false,
-    doi=true,
-    isbn=false,
-    date=year % https://tex.stackexchange.com/questions/55780/disable-month-in-biblatex-bibliography
+  style=authoryear-comp,
+  natbib=true,
+  % refsection=chapter,
+  url=false,
+  doi=true,
+  isbn=false,
+  date=year %
+  % https://tex.stackexchange.com/questions/55780/disable-month-in-biblatex-bibliography
 ]{biblatex} % natbib=true allows \citep
 % Clear "visited on"
 % https://tex.stackexchange.com/questions/400384/how-to-disable-biblatex-showing-visited-on-on-the-references
 \AtEveryBibitem{
-    \clearfield{urlyear}
-    \clearfield{urlmonth}
-    \clearfield{eprint} % remove PMID % https://tex.stackexchange.com/questions/250784/removing-eprint-and-eprinttype-in-citation-notes
+  \clearfield{urlyear}
+  \clearfield{urlmonth}
+  \clearfield{eprint} % remove PMID %
+  % https://tex.stackexchange.com/questions/250784/removing-eprint-and-eprinttype-in-citation-notes
 }
-
 
 \usepackage{graphicx}
 % ensures figures stay in their section
@@ -84,28 +90,28 @@
 \makeatother
 % italic figure captions
 \usepackage[format=plain,
-            textfont=it,
-            ]{caption}
-
+  textfont=it,
+]{caption}
 
 % simple TO DO and comment macros
 \usepackage[
-                % https://tex.stackexchange.com/questions/4503/how-do-i-specify-color-in-rgb-using-hypersetup-in-hyperref
-                dvipsnames,svgnames,x11names
-                ]{xcolor}
+  % https://tex.stackexchange.com/questions/4503/how-do-i-specify-color-in-rgb-using-hypersetup-in-hyperref
+  dvipsnames,svgnames,x11names
+]{xcolor}
 \newcommand\todo[1]{\textcolor{orange}{[#1]}}% simple TO DO macro
 \newcommand\comment[1]{\textcolor{red}{[#1]}}
 
 \usepackage{url}
 \usepackage[
-    hidelinks,
-    pdfa % Required for valid pdf/a output: https://tex.stackexchange.com/questions/431022/pdf-a-validation-problem-the-f-key-is-missing
+  hidelinks,
+  pdfa % Required for valid pdf/a output:
+  % https://tex.stackexchange.com/questions/431022/pdf-a-validation-problem-the-f-key-is-missing
 ]{hyperref}
 \hypersetup{
-    % colorlinks,
-    % linkcolor=RoyalBlue4,
-    % citecolor=PaleVioletRed4,
-    % urlcolor=Firebrick4
+  % colorlinks,
+  % linkcolor=RoyalBlue4,
+  % citecolor=PaleVioletRed4,
+  % urlcolor=Firebrick4
 }
 
 \newcommand{\indsim}{\overset{\mathrm{ind}}{\sim}}
@@ -149,58 +155,58 @@
 
 %%%% JH Library requirement (DO NOT CHANGE)
 \def\GlobalMargin{1.0in}                      % margin on all sides
-% \def\PrintingOffset{0.5in}                  % additional left margin for the printed copy
+% \def\PrintingOffset{0.5in}                  % additional left
+% margin for the printed copy
 \def\PrintingOffset{0.0in}
 \def\MainTextSpacing{\singlespacing}        % double-spaced main text
 % \def\MainTextSpacing{}
 \def\CaptionStretch{1.1}                    % to match 2x spacing
 % \def\CaptionStretch{1.0}
 
-
 \captionsetup{font={stretch=\CaptionStretch}}
 
 \geometry{
-    letterpaper, 
-    margin=\GlobalMargin, 
-    bindingoffset=\PrintingOffset, 
-    nomarginpar, 
-    % includehead, 
-    % headheight=\HeaderHeight, 
-    % headsep=\HeaderSpace, 
-    includefoot, 
-    heightrounded
-    }
+  letterpaper,
+  margin=\GlobalMargin,
+  bindingoffset=\PrintingOffset,
+  nomarginpar,
+  % includehead,
+  % headheight=\HeaderHeight,
+  % headsep=\HeaderSpace,
+  includefoot,
+  heightrounded
+}
 
 %%%% BIBLIOGRAPHY ITEMS
 \def\BibTextSpacing{\onehalfspacing}         % single-spaced bibliography
 % \def\BibTextSpacing{\singlespacing}         % single-spaced bibliography
-\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
+\def\BibItemSpacing{\baselineskip}          % spacing between
+% bibliographic items in reference
 
 %%%% UNNUMBERED CHAPTERS, SECTION, and SUBSECTION COMMAND for ADDING to TOC
 %% removes the 'Chapter #' title while keeping it listed in the TOC
 \newcommand\chap[1]{%
-    \chapter*{#1}%
-    \markboth{#1}{}
-    \addcontentsline{toc}{chapter}{#1}}
-  
+  \chapter*{#1}%
+  \markboth{#1}{}
+\addcontentsline{toc}{chapter}{#1}}
+
 %% removes the 'Section #' title while keeping it listed in the TOC
 \newcommand\sect[1]{%
-    \phantomsection
-    \section*{#1}%
-    \addcontentsline{toc}{section}{#1}}
-  
+  \phantomsection
+  \section*{#1}%
+\addcontentsline{toc}{section}{#1}}
+
 %% removes the 'Subsection #' title while keeping it listed in the TOC
 \newcommand\subsect[1]{%
-    \phantomsection
-    \subsection*{#1}%
-    \addcontentsline{toc}{subsection}{#1}}
+  \phantomsection
+  \subsection*{#1}%
+\addcontentsline{toc}{subsection}{#1}}
 
 %% removes the 'Subsubsection #' title while keeping it listed in the TOC
 \newcommand\subsubsect[1]{%
-    \phantomsection
-    \subsubsection*{#1}%
-    \addcontentsline{toc}{subsubsection}{#1}}
-
+  \phantomsection
+  \subsubsection*{#1}%
+\addcontentsline{toc}{subsubsection}{#1}}
 
 % Correct matrix for double spacing
 % https://tex.stackexchange.com/questions/137004/matrix-within-equation/137009#137009
@@ -209,7 +215,7 @@
   \let\@ifnextchar\new@ifnextchar
   \linespread{1}\selectfont
   \renewcommand{\arraystretch}{1.2}%
-  \array{*\c@MaxMatrixCols c}}
+\array{*\c@MaxMatrixCols c}}
 \makeatother
 
 % Footnotes must be 2 points less than main text but larger than 8pt
@@ -223,15 +229,15 @@
 % https://webpages.tuni.fi/latex/pdfa-guide.pdf
 \usepackage[a-1b,mathxmp]{pdfx}
 
-% Include TOC in TOC
-\usepackage{tocbibind}
-
+\usepackage[
+  nottoc % Don't include TOC in TOC
+]{tocbibind}
 
 % Redefine `abstract`s so they can be at the start of each chapter
 % don't cause the page numbering to reset
 % https://tex.stackexchange.com/a/4857
 \newenvironment{myAbstract}{
-    \rightskip.5in
-    \leftskip.5in
-    % \itshape
-    }{}
+  \rightskip.5in
+  \leftskip.5in
+  % \itshape
+}{}
