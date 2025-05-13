@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="199.32809mm"
+   height="128.19151mm"
+   viewBox="0 0 199.32809 128.19151"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="effect_measures_pp_plot.svg"
+   inkscape:export-filename="effect_measures_pp_plot.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0897757"
+     inkscape:cx="401.91755"
+     inkscape:cy="277.58004"
+     inkscape:window-width="1920"
+     inkscape:window-height="1115"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect11"
+       width="28.492144"
+       height="34.437969"
+       x="20.325071"
+       y="24.935095" />
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect12"
+       width="11.484077"
+       height="34.437965"
+       x="48.817215"
+       y="24.935095" />
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect13"
+       width="28.492144"
+       height="9.4156246"
+       x="20.325071"
+       y="59.373062" />
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect15"
+       width="11.478543"
+       height="9.4107189"
+       x="48.817886"
+       y="59.373661" />
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect16"
+       width="4.3306785"
+       height="34.540012"
+       x="60.243793"
+       y="24.884073" />
+    <rect
+       style="fill:#b3b3b3;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect17"
+       width="13.063331"
+       height="34.420406"
+       x="64.641884"
+       y="24.943876" />
+    <rect
+       style="fill:#b3b3b3;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect18"
+       width="4.3335428"
+       height="9.5152998"
+       x="60.237503"
+       y="59.321362" />
+    <rect
+       style="fill:#3771c8;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect19"
+       width="13.215604"
+       height="9.3748007"
+       x="64.749443"
+       y="59.364281" />
+    <rect
+       style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect23"
+       width="28.492144"
+       height="9.4156351"
+       x="20.325071"
+       y="68.788689" />
+    <rect
+       style="fill:#b3b3b3;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect24"
+       width="11.478543"
+       height="9.4107285"
+       x="48.817886"
+       y="68.789291" />
+    <rect
+       style="fill:#3771c8;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect25"
+       width="4.3335428"
+       height="9.5153103"
+       x="60.237503"
+       y="68.737" />
+    <rect
+       style="fill:#3771c8;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
+       id="rect26"
+       width="13.215604"
+       height="9.3748102"
+       x="64.749443"
+       y="68.888283" />
+    <rect
+       style="fill:#b3b3b3;stroke:#808080;stroke-width:0.221758;stroke-dasharray:none"
+       id="rect29"
+       width="28.555548"
+       height="4.3837743"
+       x="20.248888"
+       y="78.199738" />
+    <rect
+       style="fill:#3771c8;stroke:#808080;stroke-width:0.221758;stroke-dasharray:none"
+       id="rect30"
+       width="11.504086"
+       height="4.3814902"
+       x="48.805122"
+       y="78.20002" />
+    <circle
+       style="fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       id="circle63"
+       cx="71.258446"
+       cy="42.546059"
+       r="0.72836083" />
+    <path
+       style="fill:#b9b9b9;fill-opacity:0;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       d="M 20.24889,82.583513 48.804437,78.199738 60.237504,68.737 64.571045,59.321363 77.705216,24.943878"
+       id="path48" />
+    <rect
+       style="fill:#3771c8;fill-opacity:1;stroke:#808080;stroke-width:0.221758;stroke-dasharray:none"
+       id="rect31"
+       width="4.3431864"
+       height="4.430181"
+       x="60.250145"
+       y="78.175674" />
+    <rect
+       style="fill:#3771c8;fill-opacity:1;stroke:#808080;stroke-width:0.221758;stroke-dasharray:none"
+       id="rect32"
+       width="13.245011"
+       height="4.3647661"
+       x="64.772118"
+       y="78.246109" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="28.891647"
+       y="43.337471"
+       id="text32"><tspan
+         sodipodi:role="line"
+         id="tspan32"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="28.891647"
+         y="43.337471">y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="tspan33">1</tspan> wins</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="28.891647"
+         y="47.306221"
+         id="tspan71">y<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan73">1</tspan> &gt; y<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan72">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="65.807777"
+       y="72.517349"
+       id="text35"><tspan
+         sodipodi:role="line"
+         id="tspan35"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="65.807777"
+         y="72.517349">y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan36">0</tspan> wins</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="65.807777"
+         y="76.486099"
+         id="tspan74">y<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan76">1</tspan> &lt; y<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan75">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="68.556297"
+       y="50.275372"
+       id="text37"><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="68.556297"
+         y="50.275372">draw/</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-opacity:1"
+         x="68.556297"
+         y="54.244122"
+         id="tspan118">tie</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="83.033142"
+       y="86.67495"
+       id="text38"><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="83.033142"
+         y="86.67495">cdf(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan39">0</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="6.5552478"
+       y="24.400091"
+       id="text41"><tspan
+         sodipodi:role="line"
+         id="tspan41"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="6.5552478"
+         y="24.400091">cdf(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan42">1</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:0;stroke:#5b5b5b;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="61.425098"
+       y="89.466995"
+       id="text43"><tspan
+         sodipodi:role="line"
+         id="tspan43"
+         style="stroke-width:0.282222"
+         x="61.425098"
+         y="89.466995"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4183px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303853;stroke-dasharray:none;stroke-opacity:1"
+       x="20.064608"
+       y="86.97084"
+       id="text44"><tspan
+         sodipodi:role="line"
+         id="tspan44"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303852"
+         x="20.064608"
+         y="86.97084">0                       c<tspan
+   style="font-size:2.2219px;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303852"
+   id="tspan45">1</tspan>        c<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan47">2</tspan> c<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan48">3</tspan>         1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="83.275932"
+       y="95.658066"
+       id="text50"><tspan
+         sodipodi:role="line"
+         id="tspan50"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="83.275932"
+         y="95.658066">ridit(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan49">0</tspan>) = midrank(y<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan110">0</tspan>)/N</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4183px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303853;stroke-dasharray:none;stroke-opacity:1"
+       x="20.186001"
+       y="95.953957"
+       id="text54"><tspan
+         sodipodi:role="line"
+         id="tspan54"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303852"
+         x="20.186001"
+         y="95.953957">0           r<tspan
+   style="font-size:2.2219px;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303852"
+   id="tspan51">1</tspan>               r<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan52">2</tspan>      r<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan53">3</tspan>    r<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan55">4</tspan>    1</tspan></text>
+    <path
+       style="fill:#ececec;fill-opacity:0;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       d="M 20.248888,82.583511 77.705214,24.943876"
+       id="path55" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="82.911751"
+       y="104.15561"
+       id="text57"><tspan
+         sodipodi:role="line"
+         id="tspan57"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="82.911751"
+         y="104.15561">rank(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan56">0</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.4183px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303853;stroke-dasharray:none;stroke-opacity:1"
+       x="19.943214"
+       y="104.4515"
+       id="text61"><tspan
+         sodipodi:role="line"
+         id="tspan61"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303852"
+         x="19.943214"
+         y="104.4515">  1                                               N</tspan></text>
+    <circle
+       style="fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       id="path61"
+       cx="54.720161"
+       cy="73.468369"
+       r="0.72836083" />
+    <circle
+       style="fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       id="circle61"
+       cx="34.725857"
+       cy="80.391624"
+       r="0.72836083" />
+    <circle
+       style="fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       id="circle62"
+       cx="62.255184"
+       cy="64.07901"
+       r="0.72836083" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:tb-rl;direction:ltr;text-anchor:start;fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="93.906937"
+       y="39.48555"
+       id="text63"><tspan
+         sodipodi:role="line"
+         id="tspan63"
+         style="stroke-width:0.282222"
+         x="93.906937"
+         y="39.48555"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:tb-rl;direction:ltr;text-anchor:start;fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="115.8815"
+       y="53.563004"
+       id="text64"><tspan
+         sodipodi:role="line"
+         id="tspan64"
+         style="stroke-width:0.282222"
+         x="115.8815"
+         y="53.563004"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="84.578232"
+       y="19.765673"
+       id="text66"><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="19.765673"
+         id="tspan67">mean ridit(y_1 w.r.t. cdf(y_0))</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="23.734423"
+         id="tspan68">   = area under diagonal</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="27.703173"
+         id="tspan77" /><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="31.671923"
+         id="tspan78">win ratio = orange : blue</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="35.640671"
+         id="tspan79">win odds = above diagonal : below diagonal</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="39.609421"
+         id="tspan80">win difference = orange - blue</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="43.578171"
+         id="tspan114" /><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="47.546921"
+         id="tspan81">orange ?= common language effect size</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="51.515671"
+         id="tspan82">            ?= probability of superiority</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="55.484421"
+         id="tspan83">            ?= win probability</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="59.453171"
+         id="tspan104">            ?= AUROC</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="63.421921"
+         id="tspan105">       <tspan
+   style="font-weight:bold"
+   id="tspan106">check handling of ties/grey</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="67.390671"
+         id="tspan102" /><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="71.359421"
+         id="tspan103">Mann-Whitney <tspan
+   style="font-style:italic"
+   id="tspan109">U</tspan> statistic = (orange + grey/2) * N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan111">0</tspan> * N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan112">1</tspan></tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="84.578232"
+         y="75.328171"
+         id="tspan113">Somers' D = area above - area below (vs. win difference: ties?)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;opacity:1;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       x="10.987284"
+       y="8.7554913"
+       id="text69"><tspan
+         sodipodi:role="line"
+         id="tspan69"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         x="10.987284"
+         y="8.7554913">PP plot illustration of ordinal effect measures</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         x="10.987284"
+         y="12.724241"
+         id="tspan70">comparing p(y | x = 0) to p(y | x = 1) based on</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         x="10.987284"
+         y="16.692991"
+         id="tspan84">the &quot;independent draws&quot; device</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="17.109449"
+       y="113.1131"
+       id="text93"><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="17.109449"
+         y="113.1131"
+         id="tspan93">Note: both axes have the same number of levels</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="17.109449"
+         y="117.08185"
+         id="tspan115" /><tspan
+         sodipodi:role="line"
+         style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
+         x="17.109449"
+         y="121.0506"
+         id="tspan116">What about <tspan
+   style="font-weight:bold"
+   id="tspan117">average difference between the CDFs</tspan> (since CDF plots are natural)?</tspan></text>
+  </g>
+</svg>
