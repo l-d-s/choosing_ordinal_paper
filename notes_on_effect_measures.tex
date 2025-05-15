@@ -213,6 +213,10 @@ Two asides:
     expressed using the ``pairs of draws'' device:\footnote{ I believe this is
       connected with
       $U$-statistics.\url{https://stats.stackexchange.com/questions/612496/linear-regression-vs-average-of-slopes}
+      See also \url{https://www.fharrell.com/post/po/} discussion of
+      Mann-Whitney. This also says that \textbf{it's possible to
+        convert between Wilcoxon statistic, Somers' $D$, concordance
+      probability, \emph{and} the Spearman rank correlation.}
     } \[ \cov(x, y) = \frac{1}{2}\ave(x - x')(y - y') \\ b_{yx} =
       \frac{\ave (y -
       y')(x - x')}{\ave (x - x')^2} = {\ave \left(w \times
@@ -257,9 +261,11 @@ What's the connection? Let $y$ be the score associated with the
 diagnostic test and assume that a smaller $y$ is associated with a
 decision in favor of $X =$ True.
 
-Then the ROC curve is a plot of $\Pr(y \leq t \mid X = \text{True})$
+Then the ROC curve is a plot of $\Pr(Y \leq t \mid X = \text{True})$
 (which is just sensitivity)
-versus $\Pr(y \leq t \mid X = \text{False})$ (which is just 1 - specificity).
+versus $\Pr(Y \leq t \mid X = \text{False})$ (which is just 1 -
+specificity) -- that is, a plot of cdf($y \mid x = 1$) versus cdf($y
+\mid x = 0$)
 
 \begin{figure}
   \includegraphics[width=5in]{PP_or_ridit_interpretation_of_AUROC.png}
@@ -289,7 +295,7 @@ versus $\Pr(y \leq t \mid X = \text{False})$ (which is just 1 - specificity).
 
 \subsection{Measures of effect}
 
-\subsubsection{Binary $x$, ordinal $y$}
+\subsubsection{Binary \emph{x}, ordinal \emph{y}}
 
 \begin{itemize}
   \item \textbf{Mann-Whitney $U$ statistic and its limit} Rescaling
@@ -299,9 +305,10 @@ versus $\Pr(y \leq t \mid X = \text{False})$ (which is just 1 - specificity).
       Note that this page also mentions a statistic ``$\rho$''
       which is the version incorporating ties, i.e.~$\Pr(Y > X) +
       0.5 \times \Pr(Y = X)$.
-    \item \textbf{Wilcoxon statistic and its limit} Signed rank test. Either a
-      single sample (in which case testing "whether the data come from
-      a symmetric distribution with a specified center") or paired samples.
+      % \item \textbf{Wilcoxon statistic and its limit} Signed rank
+      % test. Either a
+      %   single sample (in which case testing "whether the data come from
+      %   a symmetric distribution with a specified center") or paired samples.
     \item \textbf{Win probability} Measure of effect. In terms of
       Somers' D it's
       $\frac{\text{SD} + 1}{2}$
@@ -312,7 +319,7 @@ versus $\Pr(y \leq t \mid X = \text{False})$ (which is just 1 - specificity).
     \item \textbf{Mean ridit}
   \end{itemize}
 
-  \subsubsection{Ordinal $x$, ordinal $y$}
+  \subsubsection{Ordinal \emph{x}, ordinal \emph{y}}
 
   \begin{itemize}
     \item \textbf{Somers' $D$} \citep{newsonInterpretationSomersFour,
@@ -332,7 +339,7 @@ versus $\Pr(y \leq t \mid X = \text{False})$ (which is just 1 - specificity).
 
   \subsection{Measures of association}
 
-  \subsubsection{Ordinal $x$, ordinal $y$}
+  \subsubsection{Ordinal \emph{x}, ordinal \emph{y}}
 
   \begin{itemize}
     \item \textbf{Kendall's $\tau$ ($a$ and $b$ and $c$ forms --

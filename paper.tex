@@ -273,6 +273,9 @@ ordinal outcome does not mean assuming that the two outcomes have the
 \emph{same} utility. Rather it represents \emph{avoiding comparing}
 their utilities. (This was something clinicians asked about more than once.)
 
+Also, we "chunk" longer hospital stays more aggressively to avoid
+small categories, for interpretability's sake.
+
 \subsubsection{Coarsening for simplicity}
 
 Too many levels can make it hard to directly compare meaningful
@@ -294,6 +297,10 @@ This is a version of the ``composite strategy'' as described in e.g.
 more efficiency than creating a \emph{binary} composite outcome.
 
 \section{Choosing ordinal effect measures}
+
+Key references:
+\citet{agrestiMeasuresNominalOrdinalAssociation1981,agrestiOrdinalProbabilityEffect2017a,
+agrestiSimpleWaysInterpret2018a}
 
 Goal: we want to compare two or more distributions over ordinal
 outcomes with a single number. (Two distributions when comparing control and
@@ -480,11 +487,22 @@ Consider some of the critiques of win methods in
   \item Situating methods in their proper context can help
     trialists make informed choices among them
   \item Win methods can make use of
-    plots and diagnostics for general ordinal outcomes, e.g.
-    comparative CDF plots.
+    plots and diagnostics for general ordinal outcomes, for the
+    \emph{implicit} ordinal variable
+    \begin{itemize}
+      \item
+        comparative CDF plots for the
+      \item ridit plots
+        \citep{brossHowUseRidit1958,jansenRiditAnalysisReview1984}
+        relative to a reference group, which should allow one to
+        display both full eCDF information and also win statistics
+        (based on the interpretation of the mean ridit as a win probability)
+    \end{itemize}e.g.
   \item Ordinal regression models can use win methods for model checking; it is
     also possible to present a model-based win effect measure alongside a common
-    odds ratio for example.
+    odds ratio for example. See
+    \citep{agrestiOrdinalProbabilityEffect2017} for example, which
+    covers both latent variable and predicted probability versions.
   \item The outcomes \emph{implicitly} constructed using
     DOOR and win methods may contain many levels, and may contain
     levels where an
