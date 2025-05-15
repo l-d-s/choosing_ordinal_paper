@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="199.32809mm"
-   height="128.19151mm"
-   viewBox="0 0 199.32809 128.19151"
+   width="229.39284mm"
+   height="104.43491mm"
+   viewBox="0 0 229.39283 104.43491"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.0897757"
-     inkscape:cx="401.91755"
-     inkscape:cy="277.58004"
+     inkscape:zoom="1.5411756"
+     inkscape:cx="364.33227"
+     inkscape:cy="218.33982"
      inkscape:window-width="1920"
      inkscape:window-height="1115"
      inkscape:window-x="0"
@@ -36,11 +36,37 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs1" />
+     id="defs1">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect32"
+       is_visible="true"
+       lpeversion="1" />
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(40.226486,-4.9264627)">
     <rect
        style="fill:#d38d5f;stroke:#808080;stroke-width:0.324637;stroke-dasharray:none"
        id="rect11"
@@ -259,7 +285,7 @@
          id="tspan43"
          style="stroke-width:0.282222"
          x="61.425098"
-         y="89.466995"></tspan></text>
+         y="89.466995" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.4183px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.303853;stroke-dasharray:none;stroke-opacity:1"
@@ -367,7 +393,7 @@
          id="tspan63"
          style="stroke-width:0.282222"
          x="93.906937"
-         y="39.48555"></tspan></text>
+         y="39.48555" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;text-align:start;writing-mode:tb-rl;direction:ltr;text-anchor:start;fill:#616161;fill-opacity:1;stroke:#616161;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
@@ -378,7 +404,7 @@
          id="tspan64"
          style="stroke-width:0.282222"
          x="115.8815"
-         y="53.563004"></tspan></text>
+         y="53.563004" /></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
@@ -424,45 +450,41 @@
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="47.546921"
-         id="tspan81">orange ?= common language effect size</tspan><tspan
+         id="tspan81">orange = common language effect size</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="51.515671"
-         id="tspan82">            ?= probability of superiority</tspan><tspan
+         id="tspan82">            = probability of superiority</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="55.484421"
-         id="tspan83">            ?= win probability</tspan><tspan
+         id="tspan83">            = win probability</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="59.453171"
-         id="tspan104">            ?= AUROC</tspan><tspan
+         id="tspan104">            = AUROC</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="63.421921"
-         id="tspan105">       <tspan
-   style="font-weight:bold"
-   id="tspan106">check handling of ties/grey</tspan></tspan><tspan
+         id="tspan34">            = Mann-Whitney U statistic / (N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan46">0</tspan> * N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan40">1</tspan>)</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="67.390671"
-         id="tspan102" /><tspan
+         id="tspan105">        (excluding ties; to include ties: orange + (1/2) grey/2)</tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
          y="71.359421"
-         id="tspan103">Mann-Whitney <tspan
-   style="font-style:italic"
-   id="tspan109">U</tspan> statistic = (orange + grey/2) * N<tspan
-   style="font-size:65%;baseline-shift:sub"
-   id="tspan111">0</tspan> * N<tspan
-   style="font-size:65%;baseline-shift:sub"
-   id="tspan112">1</tspan></tspan><tspan
+         id="tspan103"> </tspan><tspan
          sodipodi:role="line"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="84.578232"
@@ -471,24 +493,19 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;opacity:1;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-       x="10.987284"
-       y="8.7554913"
+       x="-34.899452"
+       y="11.668935"
        id="text69"><tspan
          sodipodi:role="line"
          id="tspan69"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-         x="10.987284"
-         y="8.7554913">PP plot illustration of ordinal effect measures</tspan><tspan
+         x="-34.899452"
+         y="11.668935">PP plot illustration of nonparametric ordinal effect measures</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-         x="10.987284"
-         y="12.724241"
-         id="tspan70">comparing p(y | x = 0) to p(y | x = 1) based on</tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.175px;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;white-space:normal;vector-effect:none;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
-         x="10.987284"
-         y="16.692991"
-         id="tspan84">the &quot;independent draws&quot; device</tspan></text>
+         x="-34.899452"
+         y="15.637685"
+         id="tspan84">based on the &quot;independent pairs&quot; construction</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
@@ -499,18 +516,102 @@
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
          x="17.109449"
          y="113.1131"
-         id="tspan93">Note: both axes have the same number of levels</tspan><tspan
+         id="tspan116" /></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect9"
+       width="4.3837729"
+       height="34.437969"
+       x="-9.9667082"
+       y="24.927517" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect10"
+       width="4.3837729"
+       height="9.4156246"
+       x="-9.9667082"
+       y="59.365482" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect14"
+       width="4.3837729"
+       height="9.4156351"
+       x="-9.9667082"
+       y="68.781105" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect20"
+       width="4.393528"
+       height="4.3837743"
+       x="-9.9784307"
+       y="78.192154" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect21"
+       width="28.555548"
+       height="4.3837743"
+       x="-82.610756"
+       y="-23.529139"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect22"
+       width="11.504086"
+       height="4.3814902"
+       x="-54.054516"
+       y="-23.528856"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect27"
+       width="4.3431864"
+       height="4.430181"
+       x="-42.609493"
+       y="-23.553202"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       id="rect28"
+       width="13.245011"
+       height="4.3647661"
+       x="-38.087521"
+       y="-23.482767"
+       transform="rotate(-90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="-12.672498"
+       y="88.950386"
+       id="text29"><tspan
          sodipodi:role="line"
+         id="tspan29"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
-         x="17.109449"
-         y="117.08185"
-         id="tspan115" /><tspan
+         x="-12.672498"
+         y="88.950386">cdf(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan28">1</tspan>)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282223;stroke-dasharray:none;stroke-opacity:1"
+       x="-26.66802"
+       y="88.735062"
+       id="text31"><tspan
          sodipodi:role="line"
+         id="tspan31"
          style="fill:#020b17;fill-opacity:1;stroke:none;stroke-width:0.282222"
-         x="17.109449"
-         y="121.0506"
-         id="tspan116">What about <tspan
-   style="font-weight:bold"
-   id="tspan117">average difference between the CDFs</tspan> (since CDF plots are natural)?</tspan></text>
+         x="-26.66802"
+         y="88.735062">cdf(y<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#020b17;fill-opacity:1;stroke:none"
+   id="tspan30">0</tspan>)</tspan></text>
+    <path
+       style="fill:none;stroke:#60ad07;stroke-width:0.352777;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M -1.2002813,52.360127 H 16.654053"
+       id="path31" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#60ad07;stroke-width:0.352777;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#Triangle);stop-color:#000000;stop-opacity:1"
+       d="m -12.702594,94.420822 9.4421955,8.068788 c 1.2011032,1.0264 2.43120136,2.04088 3.83571935,2.7644 1.40451795,0.72351 2.96821855,1.14621 4.54779505,1.17906 1.5795764,0.0328 3.1532572,-0.31625 4.6197455,-0.90409 1.4664886,-0.58783 2.8296816,-1.40347 4.1643726,-2.24889 7.23014,-4.579733 13.880584,-10.07358 19.742774,-16.309252"
+       id="path32"
+       inkscape:path-effect="#path-effect32"
+       inkscape:original-d="m -12.702594,94.420822 c 3.1473982,2.689596 6.2947968,5.379191 9.4421955,8.068788 3.14740123,2.68959 11.445089,0.161 17.1676325,0.79048 5.722543,0.62948 13.161848,-10.506849 19.742774,-16.309252" />
   </g>
 </svg>
