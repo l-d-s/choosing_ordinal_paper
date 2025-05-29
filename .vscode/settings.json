@@ -1,5 +1,5 @@
 {
-    "latex-workshop.latex.outDir": "%DIR%/result_dev/",
+    "latex-workshop.latex.outDir": "%DIR%/compiled/",
     "editor.defaultFormatter": null,
     "latex-workshop.formatting.latex": "tex-fmt",
     "latex-workshop.formatting.tex-fmt.args": [],
