@@ -85,7 +85,7 @@ methods \citep{evansDesirabilityOutcomeRanking2015,
 ongUnlockingDOORHow2023}--within the broader context of ordinal outcomes and
 endpoints.
 
-\section{Desiderata for outcomes and effect measures: validity and efficiency}
+\subsection{Desiderata for (ordinal) outcomes: validity and efficiency}
 
 We begin with some general desiderata for outcomes and effect measures in
 clinical studies.
@@ -109,22 +109,23 @@ An example of an outcome which is valid but inefficient might be
 death as a binary outcome in a context where deaths
 are rare.
 
-An example of an outcome which is precise but which may be invalid
+An example of an outcome which is efficient but which may be invalid
 might be continuously-measured concentrations of a biomarker which is a poor
 surrogate for disease progression.
 
-What about effect measures? We generally seek effect measures that
-\begin{enumerate}
-  \item accurately summarize decision-relevant differences in distributions of
-    patient benefit and harm
-  \item are easy to interpret and to translate into practical recommendations
-  \item can be incorporated into statistical models where required
-  \item are easy to generalize or ``transport'' across contexts or settings
-\end{enumerate}
+One point of view is that one would ``ideally'' analyze ordinal outcomes by
+reporting the associated expected utilities \todo{cite Berry talk; example of
+utility-weighted Rankin scale} and that since existing ordinal methods supply
+such utilities implicitly why not just supply them explicitly. A counterpoint
+is that the methods do not, in fact, supply utilities implicitly.
+Another is that ordinal outcomes let one ``hedge'' about precise
+utillities and this is OK.
 
-\section{Combining and coarsening ordinal outcomes}
+\subsection{Constructing versus validating}
 
-\subsection{3 ways to combine/fine-grain ordinal outcomes: sequential,
+\section{Ways to combine ordinal outcomes}
+
+\subsection{Sequential,
 hierarchical, \& parallel composition}
 
 Term in the literature: ``hierarchical composite endpoints''
@@ -187,12 +188,6 @@ Aside: \citet{wittkowskiCombiningSeveralOrdinal2004} consider combining
 ordinal variables into partial orders. This makes more sense in the
 generalized pairwise comparisons framework.
 
-\subsubsection{Another way: scores}
-
-Treat each input factor as
-numeric then sum them up. I believe \citet{ongUnlockingDOORHow2023}
-has examples?
-
 \begin{figure}
   \includegraphics[width=7in]{passport_ordinal_outcome_sequential.pdf}
   % \includegraphics[width=1in]{passport_ordinal_outcome_colorbar.png}
@@ -218,316 +213,21 @@ has examples?
   % \includegraphics[width=1in]{passport_ordinal_outcome_colorbar.png}
   \caption{Ordinal outcome used in the planned BANDICOOT adaptive
     platform trial \citep{walkerCodesigningNovelOrdinal2025}.
-  Illustrates \textbf{parallel composition} of component outcomes}
+  Illustrates \textbf{parallel composition} of component outcomes.}
   \label{fig:parallel_bandicoot}
 \end{figure}
 
-\subsection{Reasons to combine ordinal outcomes}
+\subsection{Converting back to numeric scores}
 
-\subsubsection{Incorporating intercurrent events for validity}
+Treat each input factor as
+numeric then sum them up. I believe \citet{ongUnlockingDOORHow2023}
+has examples?
 
-The intercurrent event could be (1) incorporated as a level (2) used
-for tie-breaking or overriding.
+This doesn't respect the ordinal nature of the variables. That is, it
+implicitly uses information about the \emph{differences} between levels.
 
-This is a version of the ``composite strategy'' as described in e.g.
-\citet{kahanEstimandsFrameworkPrimer2024}, but we expect it to yield
-more efficiency than creating a \emph{binary} composite outcome.
-
-For example overriding a numeric outcome by death.
-Example: REMAP-CAP: organ-free survival, overridden by death
-(Figure \ref{fig:remap_cap_override}).
-
-\begin{figure}
-  \includegraphics[width=5in]{remap_outcome_extra_cropped.jpg}
-  \caption{Ordinal outcome used in the REMAP-CAP adaptive
-    platform trial
-    \citep{theremap-capinvestigatorsInterleukin6ReceptorAntagonists2021}.
-    Illustrates overriding a numeric ordinal outcome (organ
-    support-free days) by a binary ordinal outcome (death; this is
-    ``sequential composition''), which
-  would also be an intercurrent event.}
-  \label{fig:remap_cap_override}
-\end{figure}
-
-\subsubsection{Increasing precision by reducing the probability of the
-largest category}
-
-Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
-efficiency (variance) of an unadjusted treatment comparison using an ordinal
-versus continuous outcome in the proportional odds model is given by $1 - \sum
-\overline p_c^3$ where $\overline p_c$ is the marginal probability (averaged
-over control and experimental groups) of outcome category $c$.
-
-Same should apply to the Mann-Whitney-Wilcoxon test, and therefore to
-the win probability, and therefore at least approximately to win
-difference/win ratio/win odds.
-
-Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
-categories when the probabilities are all equal: $\overline p_c = 1/C$.
-
-We have simulation results and some math to show that the value of $\sum_c
-\overline p_c^3$ is \emph{essentially a function of the largest category
-probability} $\overline{p_{\max}} = \max \overline{p_c}$. See Figure
-\ref{fig:p_max} for an illustration.
-
-\begin{figure}
-  \includegraphics[width=6in]{p_max_controls_efficiency.png}
-  \caption{Bounds on the relative efficiency of an ordinal outcome
-    compared to its continuous counterpart as a function of the maximum
-    category probability $p_\text{max}$. The upper bound (best case
-    relative efficiency for a given $p_\text{max}$) is always achieved in the
-    limit of infinitely many categories ($C = \infty$). The lower bound
-    is always achieved when the number of categories is as small as
-  possible for a given $p_\text{max}$.}
-  \label{fig:p_max}
-\end{figure}
-
-Thus simple advice is: for statistical efficiency, try to make the proportion
-of patients in the largest category small.
-
-However a converse is: if the proportion of patients in the largest
-category is
-small, not much is gained by tie-breaking.
-
-\subsubsection{Augmenting a state outcome with longitudinal
-information}
-
-Distinguish between ``state'' and ``trajectory'' variables. State
-variables summarize patient outcomes at a particular moment in time.
-Trajectory variables, including times-to-event, summarize patient
-state over a timecourse.
-
-Trajectory and state variables can be incorporated into an ordinal outcome. For
-example (from PASSPORT) ``worst pSOFA while hospitalized until day 28'' and
-``length of hospitalization'', which are longitudinal variables (summary of a
-trajectory), are combined with the day 28 state variable ``death''.
-
-Incorporating trajectory variables into an ordinal outcome may seem unnatural.
-But arguably most time-to-event analyses are in fact analyses of an
-ordinal outcome. The Cox model for time-to-event data treats time as ordinal:
-because (1) the baseline hazard is not modelled, (2) the model itself is
-invariant to monotone rescalings of the time axis, and (3) the (partial)
-likelihood (ignoring ties) depends only on the ranks of the data (i.e., is a
-marginal likelihood). The Cox model is essentially an ordinal
-stopping ratio model with complementary log-log link. (Perhaps a
-difference is censoring.)
-
-\subsection{Reasons to coarsen ordinal outcomes}
-
-\subsubsection{Coarsening to avoid directly comparing levels}
-
-In the PASSPORT outcome (Figure \ref{fig:passport_outcome}), for
-example, we include both digit
-amputation and ECMO
-any time within 28 days post-enrollment under the heading of
-``adverse clinical events''.
-
-Including these outcomes within the same level of an
-ordinal outcome does not mean assuming that the two outcomes have the
-\emph{same} utility. Rather it represents \emph{avoiding comparing}
-their utilities. (This was something clinicians asked about more than once.)
-
-Also, we "chunk" longer hospital stays more aggressively to avoid
-small categories, for interpretability's sake.
-
-\subsubsection{Coarsening for ease of communication}
-
-Too many levels can make it hard to directly compare meaningful
-proportions/probabilities.
-
-(It isn't really a problem for model fitting with modern software.)
-
-Coarsening, including combining levels and replacing complete
-tie-breaks with overrides, could help with this.
-
-\section{Choosing ordinal effect measures}
-
-Key references:
-\citet{agrestiMeasuresNominalOrdinalAssociation1981,agrestiOrdinalProbabilityEffect2017a,
-agrestiSimpleWaysInterpret2018a}
-
-Goal: we want to compare two or more distributions over ordinal
-outcomes with a single number. (Two distributions when comparing control and
-experimental groups; more distributions when e.g. adjusting for covariates.)
-
-In general this represents a loss of information. Let's say the
-outcome has $C$ categories. Then the distribution in each
-arm is specified by $C-1$ numbers (for the first $C-1$ probabilities,
-  or cumulative logits, or stopping ratio logits--reflecting the
-sum-to-1 constraint on probability distributions) and so the
-\emph{difference} between the distributions is also specified by
-$C-1$ numbers (for example the differences between the cumulative
-logits, or logit stopping probabilities).
-
-An effect measure thus represents a way to collapse these $C-1$
-numbers into one.
-
-It usually doesn't make sense to consider effect measures based on
-numeric coding (e.g. difference in mean levels). This is adding
-information that is not present in the basic ordinal structure.
-
-\subsection{Model-based effect measures}
-
-\begin{figure}
-  \includegraphics[width=7in]{illustrating_common_or.pdf}
-  \caption{The common odds ratio, a model-based effect measure, comes
-    from the best-fitting parallel curves to the logit transformed
-    empirical cumulative distribution. \textbf{Ideally would illustrate
-      using toy bar charts as above, with only 2 groups? Although it's a
-  strength that model-based measures can compare multiple groups.}}
-  \label{fig:illustrating_or}
-\end{figure}
-
-Model-based: common odds ratio; common stopping ratio or common continuation
-ratio.
-
-What they have in common: the effect measure is a byproduct of fitting a model
-to the data. See Figure \ref{fig:illustrating_or} for an illustration
-for the common odds ratio.
-
-The model typically assumes that a certain pattern holds in the outcome
-distributions across groups. If the pattern holds, then the differences in
-distributions can be described by a single number (with more than two groups,
-$G-1$ numbers) instead of $(C-1)$ numbers.
-
-In Figure \ref{fig:illustrating_or} the pattern assumed to hold is
-that the logit-transformed eCDFs in each group are parallel.
-
-\subsection{Model-free or nonparametric effect measures}
-
-These are not based on a model (assumed pattern in the differences
-between outcome distributions).
-
-\subsubsection{Effect measures based on ``independent pairwise
-comparison'' construction}
-
-\begin{figure}
-  \includegraphics[width=7.5in]{effect_measures_pp_plot.pdf}
-  \caption{Illustrating independent pairwise comparison-based effect
-    measures using a PP-plot or ROC curve. Adapted from
-  \citet{smithsonReceiverOperatingCharacteristic2023}.}
-  \label{fig:illustrating_pairwise_comparisons}
-\end{figure}
-
-Probabilistic index/probability of
-superiority, win ratio, win odds, etc. These predate win ratio and
-DOOR methods
-\citep[e.g.][p.~14]{agrestiAnalysisOrdinalCategorical2010}.
-
-Rather they are all be based on the ``\emph{pairs construction}'',
-where we imagine independently sampling patients from the control and
-treatment groups and considering ``wins'' ``ties'' and ``losses''
-(corresponding to concordant and discordant pairs and ties in $y$
-respectively). See Figure \ref{fig:illustrating_pairwise_comparisons}
-for an illustration.
-
-They can
-also be \emph{estimated from data} using pairs of patients, but this
-is not essential and they could also be estimated by fitting a
-proportional odds model, for example (though they would not be a
-simple function of a coefficient).
-
-\subsubsection{Dichotomizing or comparing with a reference group}
-
-\begin{itemize}
-  \item Dichotomizing by picking a specific cutpoint,
-    e.g. ``hospitalization or
-    worse''. This is effectively using a binary outcome, but with the
-    ordinal structure used to gain power if fitting a model.
-  \item Dichotomizing using quantiles of a reference
-    group; for example,
-    ``worse than the median outcome under standard care''
-  \item Simultaneously comparing all quantiles to those of a
-    reference group: ridit analysis
-    \citep{brossHowUseRidit1958,agrestiAnalysisOrdinalCategorical2010,
-      smithsonReceiverOperatingCharacteristic2023,
-    jansenRiditAnalysisReview1984}
-\end{itemize}
-
-\subsection{Comparing model-based and nonparametric effect measures}
-
-Both of these can be considered ``estimands'', insofar as we consider the
-estimand associated with the model-based effect measures to be given by the
-best-fitting model in the population.
-
-Two classes of assumption violations for model-based effect measures
-are \emph{magnitude}-heterogeneity across cutpoints (for example,
-  effect of a treatment on hospital length of stay or worse is larger
-  than its effect on
-death on the relevant scale) and
-\emph{sign}-heterogeneity
-across cutpoints (failure of stochastic dominance -- for example,
-treatment is beneficial for hospital length of stay, harmful for death).
-
-Nonparametric effect measures may appear to be assumption-free. However
-
-\begin{itemize}
-  \item Assumptions don't need to hold exactly for the model-based
-    effect measures to make sense
-  \item In particular, if stochastic dominance holds, we can think of
-    both model-based and nonparametric effect measures as
-    testing the null hypothesis of no effect ``in a particular
-    direction''. A weak interpretation of any particular
-    effect measure
-    is that it supplies this ``direction''.
-
-    For example the Wilcoxon test is
-    equivalent to the score test from fitting a proportional odds model.
-    Thus fitting a proportional odds model (or any other model) has a
-    valid null-testing
-    interpretation even if proportional odds doesn't hold.
-  \item Under failure of stochastic dominance (``sign
-    heterogeneity''), \emph{neither} parametric nor nonparametric
-    effect measures make sense, since it doesn't make sense to
-    summarize effects by a single number. Need to dig into the
-    cutpoint-specific effects.
-  \item Model-free methods don't define a common scale for comparing
-    more than two interventions. For example, model-free effect
-    measures can be \emph{nontransitive}, so it's not clear how to
-    use them in $\geq 2$-arm studies
-  \item For the same reason, model-based methods have additional
-    advantages, for example
-    the possibility of adjustment for covariates.
-
-    When additivity approximately holds, this yields a ``best of both
-    worlds'' effect measure that is
-    personalized (conditional) yet reportable as a single
-    number.
-\end{itemize}
-
-Harrell critiques \citep{harrellOverviewCompositeOutcome2024,
-harrellRareDegenerativeDiseases2024, harrellViewsCompositeOutcome}:
-mainly that
-win probability etc. are \emph{relative measures}:
-
-\begin{itemize}
-  \item Comparable to Cohen's $d$ or $t$-statistic (difference in
-    means divided by standard deviation or standard error) rather than
-    difference in means: compare: standardized effect size of 0.2 vs.
-    difference in means of 10 mmHg
-  \item Affected by study inclusion criteria (why? probably needs to
-    be fleshed out.)
-\end{itemize}
-
-Simulations show a typically very strong association between
-proportional odds ratios and $c$-index
-\citep{harrellViolationProportionalOdds2020}.
-
-One point of view is that one would ``ideally'' analyze ordinal
-outcomes by reporting the associated expected utilities \todo{cite Berry
-talk; example of utility-weighted Rankin scale} and that since
-existing ordinal methods supply such utilities implicitly why not
-just supply them explicitly. A counterpoint is that the methods do
-not, in fact,
-supply utilities implicitly.
-
-We should distinguish between effect measures used for \emph{analysis} and for
-\emph{reporting}. It may make sense to report the probabilistic index or a
-single-cutpoint binary outcome even if the analysis is undertaken using a
-proportional odds model.
-
-\section{Situating win/DOOR/etc. methods in the broader context of ordinal
-outcomes and effect measures}
+\subsection{Pairwise comparison methods (win, DOOR) implicitly construct ordinal
+outcomes}
 
 Terms to define/distinguish:
 \begin{itemize}
@@ -549,9 +249,9 @@ These approaches implicitly \textbf{bundle together three different things}:
     manner using pairs, often also with devices for accounting for censoring
 \end{enumerate}
 
-This paper is focused on first two steps.
+This paper is focused on the first of these steps only.
 
-Why is it useful to consider these three steps separately?
+Why is it useful to consider the three steps separately?
 
 Consider some of the critiques of win methods in
 \citet[e.g.~][]{ajufoFallaciesUsingWin2023}
@@ -602,13 +302,131 @@ Disadvantages of generalized pairwise comparison approaches
   \item Regression methods exist, but are newer and less battle-tested
 \end{itemize}
 
-\todo{``Partial credit'' analysis?}
+\section{Reasons to combine ordinal outcomes}
+
+\subsection{Providing a more holistic measure of benefit and harm}
+
+\subsection{Incorporating intercurrent events, especially death,
+for validity}
+
+The intercurrent event could be (1) incorporated as a level (2) used
+for tie-breaking or overriding.
+
+This is a version of the ``composite strategy'' as described in e.g.
+\citet{kahanEstimandsFrameworkPrimer2024}, but we expect it to yield
+more efficiency than creating a \emph{binary} composite outcome.
+
+For example overriding a numeric outcome by death.
+Example: REMAP-CAP: organ-free survival, overridden by death
+(Figure \ref{fig:remap_cap_override}).
+
+\begin{figure}
+  \includegraphics[width=5in]{remap_outcome_extra_cropped.jpg}
+  \caption{Ordinal outcome used in the REMAP-CAP adaptive
+    platform trial
+    \citep{theremap-capinvestigatorsInterleukin6ReceptorAntagonists2021}.
+    Illustrates overriding a numeric ordinal outcome (organ
+    support-free days) by a binary ordinal outcome (death; this is
+    ``sequential composition''), which
+    would also be an intercurrent event. This is another example of
+  sequential composition.}
+  \label{fig:remap_cap_override}
+\end{figure}
+
+\subsection{Increasing precision by reducing the probability of the
+largest category}
+
+Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
+efficiency (variance) of an unadjusted treatment comparison using an ordinal
+versus continuous outcome in the proportional odds model is given by $1 - \sum
+\overline p_c^3$ where $\overline p_c$ is the marginal probability (averaged
+over control and experimental groups) of outcome category $c$.
+
+Same should apply to the Mann-Whitney-Wilcoxon test, and therefore to
+the win probability, and therefore at least approximately to win
+difference/win ratio/win odds.
+
+Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
+categories when the probabilities are all equal: $\overline p_c = 1/C$.
+
+We have simulation results and some maths to show that the value of $\sum_c
+\overline p_c^3$ is \emph{essentially a function of the largest category
+probability} $\overline{p_{\max}} = \max \overline{p_c}$. See Figure
+\ref{fig:p_max} for an illustration of the maths.
+
+\begin{figure}
+  \includegraphics[width=6in]{p_max_controls_efficiency.png}
+  \caption{Bounds on the relative efficiency of an ordinal outcome
+    compared to its continuous counterpart as a function of the maximum
+    category probability $p_\text{max}$. The upper bound (best case
+    relative efficiency for a given $p_\text{max}$) is always achieved in the
+    limit of infinitely many categories ($C = \infty$). The lower bound
+    is always achieved when the number of categories is as small as
+  possible for a given $p_\text{max}$.}
+  \label{fig:p_max}
+\end{figure}
+
+Thus simple advice is: for statistical efficiency, try to make the proportion
+of patients in the largest category small.
+
+However a converse is: if the proportion of patients in the largest
+category is
+small, not much is gained by tie-breaking.
+
+\subsection{Augmenting a state outcome with longitudinal
+information}
+
+Distinguish between ``state'' and ``trajectory'' variables. State
+variables summarize patient outcomes at a particular moment in time.
+Trajectory variables, including times-to-event, summarize patient
+state over a timecourse.
+
+Trajectory and state variables can be incorporated into an ordinal outcome. For
+example (from PASSPORT) ``worst pSOFA while hospitalized until day 28'' and
+``length of hospitalization'', which are longitudinal variables (summary of a
+trajectory), are combined with the day 28 state variable ``death''.
+
+Incorporating trajectory variables into an ordinal outcome may seem unnatural.
+But arguably most time-to-event analyses are in fact analyses of an
+ordinal outcome. The Cox model for time-to-event data treats time as ordinal:
+because (1) the baseline hazard is not modelled, (2) the model itself is
+invariant to monotone rescalings of the time axis, and (3) the (partial)
+likelihood (ignoring ties) depends only on the ranks of the data (i.e., is a
+marginal likelihood). The Cox model is essentially an ordinal
+stopping ratio model with complementary log-log link. (Perhaps a
+difference is censoring.)
+
+\section{Reasons to coarsen ordinal outcomes}
+
+\subsection{Coarsening to avoid directly comparing levels}
+
+In the PASSPORT outcome (Figure \ref{fig:passport_outcome}), for
+example, we include both digit
+amputation and ECMO
+any time within 28 days post-enrollment under the heading of
+``adverse clinical events''.
+
+Including these outcomes within the same level of an
+ordinal outcome does not mean assuming that the two outcomes have the
+\emph{same} utility. Rather it represents \emph{avoiding comparing}
+their utilities. (This was something clinicians asked about more than once.)
+
+Also, we "chunk" longer hospital stays more aggressively to avoid
+small categories, for interpretability's sake.
+
+\subsection{Coarsening for ease of communication}
+
+Too many levels can make it hard to directly compare meaningful
+proportions/probabilities.
+
+(It isn't really a problem for model fitting with modern software.)
+
+Coarsening, including combining levels and replacing complete
+tie-breaks with overrides, could help with this.
 
 \section{Conclusions}
 
 \newpage
-
-\section{Bibliography}
 
 \printbibliography
 
