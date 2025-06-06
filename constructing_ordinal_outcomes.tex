@@ -281,11 +281,14 @@ Three broad ways to combine ordinal outcomes:
     call this ``overriding by $A$''. A special case of this is
     \emph{overriding events} when $A$ is binary.
 
+    This is what win methods do \todo{I \emph{THINK}. Need to go
+      through an example very carefully to check it's not in fact
+      sequential composition. Check
+      \citep{follmannAnalysisOrderedComposite2020} and the $x$ axis of
+    their survival plots}
   \item \textbf{Hierarchical composition} Complete tie-breaking of $A$ by
     $B$ (``prioritized outcomes''; lexicographic ordering) within
     \emph{every} level of $A$.
-
-    This is what win methods do.
 
     Sequential composition is complete-tie breaking followed by coarsening.
 
@@ -409,11 +412,16 @@ These approaches implicitly \textbf{bundle together three different things}:
     ``pairs'' device (win
     probability/win ratio/win odds/etc.)
   \item Estimating that effect measure in a
-    nonparametric/flexible manner using pairs, often also with devices for
-    accounting for censoring
+    nonparametric/flexible manner using pairs, \textbf{with devices for
+    accounting for censoring}
 \end{enumerate}
 
 This paper is focused on the first of these steps only.
+
+\citet{follmannAnalysisOrderedComposite2020} is an example of the
+approach of explicitly constructing a new ordinal outcome based on a
+hierarchy (in this case a hierarchy of 3 times-to-event, with event
+times for worse events overriding event times for better ones.).
 
 Why is it useful to consider the three steps separately?
 
@@ -429,9 +437,8 @@ Consider some of the critiques of win methods in
     \begin{itemize}
       \item comparative CDF or ``survival''
         (complementary CDF) plots for assessing stochastic
-        monotonicity \todo{this
-          seems not done routinely? perhaps because of the difficulty
-        of incorporating censoring?}
+        monotonicity. \citet{follmannAnalysisOrderedComposite2020}
+        also does this.
       \item ridit plots
         \citep{brossHowUseRidit1958,jansenRiditAnalysisReview1984} relative to a
         reference group, which should allow one to display both full
