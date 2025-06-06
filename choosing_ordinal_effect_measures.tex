@@ -28,42 +28,49 @@ Working Group}
 
 \section{Desiderata for ordinal effect measures}
 
-What about effect measures? We generally seek effect measures that
+Effect measures compare distributions of outcomes across groups
+under different interventions or exposures.
+
+We generally seek effect measures that
 \begin{enumerate}
-  \item accurately summarize decision-relevant differences in distributions of
-    patient benefit and harm
+  \item correspond most directly to patient benefit/harm
   \item are easy to interpret and to translate into practical recommendations
   \item can be incorporated into statistical models where required
   \item are easy to generalize or ``transport'' across contexts or settings
 \end{enumerate}
 
-Key references:
-\citet{agrestiMeasuresNominalOrdinalAssociation1981,agrestiOrdinalProbabilityEffect2017a,
-agrestiSimpleWaysInterpret2018a}
+Key references for ordinal effect measures:
+\citet{agrestiMeasuresNominalOrdinalAssociation1981,agrestiOrdinalProbabilityEffect2017,
+agrestiSimpleWaysInterpret2018}.
 
-Goal: we want to compare two or more distributions over ordinal
-outcomes with a single number. (Two distributions when comparing control and
-experimental groups; more distributions when e.g. adjusting for covariates.)
+We want to compare two or more distributions over ordinal
+outcomes with a single number. We want to compare \emph{two} distributions
+when when there are two interventions (call them control and
+experimental). But in multi-arm studies or when e.g. adjusting for
+covariates, it may become important to compare more than 2 groups
+(see the transitivity in Section \ref{sec:comparing}).
 
-In general this represents a loss of information. Let's say the
+Summarizing the comparison between two distributions with a single
+number represents a loss of information. Let's say the
 outcome has $C$ categories. Then the distribution in each
-arm is specified by $C-1$ numbers (for the first $C-1$ probabilities,
+arm is non-redundantly specified by $C-1$ numbers (for the first
+  $C-1$ probabilities,
   or cumulative logits, or stopping ratio logits--reflecting the
 sum-to-1 constraint on probability distributions) and so the
-\emph{difference} between the distributions is also specified by
+\emph{difference} between the distributions is also non-redundantly specified by
 $C-1$ numbers (for example the differences between the cumulative
-logits, or logit stopping probabilities).
+  logits, or logit stopping probabilities -- these latter numbers are
+unconstrained).
 
-An effect measure thus represents a way to collapse these $C-1$
-numbers into one.
+Since an effect measure thus represents a way to collapse these $C-1$
+numbers into one, it must lose information.
 
-It usually doesn't make sense to consider effect measures based on
-numeric coding (e.g. difference in mean levels). This is adding
-information that is not present in the basic ordinal structure.
+Truly ordinal effect measures depend only on the ordinal structure of
+the outcomes, rather than, for example, a particular numeric coding
+(e.g. difference in mean levels). This is adding
+information that is not present in the ordinal structure.
 
-\section{A taxonomy of ordinal effect measures}
-
-\subsection{Model-based effect measures}
+\section{Model-based effect measures}
 
 \begin{figure}
   \includegraphics[width=7in]{illustrating_common_or.pdf}
@@ -79,46 +86,73 @@ information that is not present in the basic ordinal structure.
   \item
     common odds ratio (or e.g. probit analogue; there are versions of
     this for any cumulative link)
-  \item common stopping ratio or common continuation
-    ratio (hazard ratio is an example with implicitly ordinal time)
+  \item Others: common stopping ratio or common continuation
+    ratio (hazard ratio is an example with implicitly ordinal time);
+    see
+    \citet{burknerOrdinalRegressionModels2019,agrestiAnalysisOrdinalCategorical2010}
+    for more.
 \end{itemize}
 
 What they have in common: the effect measure is a byproduct of fitting a model
-to the data. See Figure \ref{fig:illustrating_or} for an illustration
+to the data.
+The model assumes that a certain \emph{pattern} is present in the outcome
+distributions across groups. If the pattern (approximately) holds,
+then the differences in
+distributions can (approximately) be described by a single number.
+See Figure \ref{fig:illustrating_or} for an illustration
 for the common odds ratio.
 
-A good overview of ordinal models is \citet{burknerOrdinalRegressionModels2019}.
-
-The model assumes that a certain \emph{pattern} is present in the outcome
-distributions across groups. If the pattern ``holds'', then the differences in
-distributions can be described by a single number (with more than two groups,
-$G-1$ numbers) instead of $(C-1)$ numbers.
-
-In Figure \ref{fig:illustrating_or} the pattern assumed to hold is
+Usually model-based effect measures can put multiple groups on a
+common ``scale''. This is important when adjusting for prognostic
+factors, for example.
+A proportional odds model does this with the scale defined by a
+common set of cutpoints
+or ``intercepts''.
+Figure \ref{fig:illustrating_or} illustrates this; the pattern
+assumed to hold is
 that the logit-transformed eCDFs in each group are parallel.
 
-\subsection{Model-free or nonparametric effect measures}
+\section{Model-free or nonparametric effect measures}
 
 These are not based on a model (assumed pattern in the differences
 between outcome distributions).
 
-\subsubsection{Effect measures based on ``independent pairs'' or
+\subsection{Effect measures based on ``independent pairs'' or
 ``win'' constructions}
 
 \begin{figure}
-  \includegraphics[width=7.5in]{effect_measures_pp_plot.pdf}
-  \caption{Illustrating independent pairwise comparison-based effect
-    measures using a PP-plot or ROC curve. Adapted from
+  \includegraphics[width=7in]{effect_measures_pp_plot.pdf}
+  \caption{\textbf{Illustrating independent pairwise comparison-based effect
+    measures using a PP-plot or ROC curve.}
+    The $x$ axis shows the
+    cumulative distribution function (CDF) of $y$ under the control
+    intervention; the $y$ axis shows the CDF under the experimental
+    intervention. The grey
+    curve (\emph{P-P} curve) shows how the CDFs vary with one
+    another; a curve below the diagonal indicates that the CDF of $y$
+    under the experimental treatment is lower than the CDF of $y$
+    under control, and therefore that $y$ is stochastically greater
+    under the experimental treatment. Areas in the plot correspond to
+    probabilities under
+    the ``independent pairwise comparisons'' construction: the orange
+    area corresponds to the win probability (or probabilistic index,
+    probability of superiority, common language effect size) in favor
+    of the experimental treatment. The ratio of orange and blue areas
+    is the win ratio, and if the grey area -- corresponding to tied
+    pairs under independent draws -- is allocated equally to orange
+    and blue, the ratio of areas corresponds to the win odds.
+    Adapted from
   \citet{smithsonReceiverOperatingCharacteristic2023}.}
   \label{fig:illustrating_pairwise_comparisons}
 \end{figure}
 
-Probabilistic index/probability of
-superiority, win ratio, win odds, etc. These predate win ratio and
-DOOR methods
+Probabilistic index, probability of
+superiority, common language effect size, win ratio, win odds, etc.
+These predate win ratio and
+DOOR methods and have been reinvented many times
 \citep[e.g.][p.~14]{agrestiAnalysisOrdinalCategorical2010}.
 
-Rather they are all be based on the ``\emph{pairs construction}'',
+They are all be based on the ``\emph{pairs construction}'',
 where we imagine independently sampling patients from the control and
 treatment groups and considering ``wins'' ``ties'' and ``losses''
 (corresponding to concordant and discordant pairs and ties in $y$
@@ -131,7 +165,75 @@ is not essential and they could also be estimated by fitting a
 proportional odds model, for example (though they would not be a
 simple function of a coefficient).
 
-\subsubsection{Dichotomizing or comparing with a reference group}
+They generalize binary effect measures and can themselves be
+generalized beyond comparing two groups to the situation where $x$ is
+also ordinal.
+
+\subsection{Effects based on the pairs constructions do not measure
+individual-level effects}
+
+Pair-construction or win methods have a subtle issue of interpretation.
+
+The win probability is \emph{not} the probability that a given
+individual's outcome under the experimental treatment is better than
+what would be obtained under the control treatment.
+
+Rather is the probability that an individual drawn at random
+from the experimental group has a better outcome than a \emph{different}
+individual drawn at random from the control group.
+
+The issue is similar to that for \emph{p}-values, which is subtly
+different from -- and often confused for -- ``the thing we want''
+(namely the posterior probability of the null hypothesis).
+
+Relatedly, I believe that \emph{win probabilities and win
+differences, unlike risks and risk differences, are non-collapsible}
+in the sense that the average of win probabilities (or differences)
+across strata is not necessarily equal to the win probability (or
+difference) in the unstratified population.
+
+\begin{figure}
+  \includegraphics[width=5in]{po_association_discrete.png}
+  \caption{\textbf{Effect measures based on the ``independent pairs''
+    construction do not refer to individual-level benefit/harm.}
+    Left: two ordinal outcome distributions. Right: different
+    possible joint distributions of potential outcomes with marginals
+    corresponding to the distributions on the left.
+    The ``probability of benefit'' -- probability that a randomly
+    selected \emph{individual} does better under the experimental
+    intervention than the control intervention -- depends on the
+    joint distribution and is higher when potential outcomes are
+    positively associated. The win probability is the probability of
+    benefit when the potential outcomes are independent (or the
+      probability that experimental intervention ``beats'' control in a
+    random \emph{pair} of individuals).
+  }
+  \label{fig:pairwise_and_pos_discrete}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=7in]{po_association_continuous.png}
+  \caption{\textbf{Effect measures based on the ``independent pairs''
+    construction do not refer to individual-level benefit/harm.}
+    This figure is meant to illustrate the same point as Figure
+    \ref{fig:pairwise_and_pos_discrete}, but with
+    continuous outcomes. They make things easier because it's
+    possible to plot the
+    \emph{distribution} of individual-level treatment effects. (By
+      contrast, with ordinal outcomes there's no natural notion of the
+      difference between two levels of the scale and hence no compact way to
+    represent individual effects.) The orange criss-crosses are
+    cutpoint used to generate the data in Figure
+    \ref{fig:pairwise_and_pos_discrete}.
+    \todo{Ways to make the two plots more parallel: have green and
+      red (or blue and red) in the discrete heatmaps too; include an
+    independence case for the continuous outcomes.}
+  }
+  \label{fig:pairwise_and_pos_continuous}
+\end{figure}
+
+\subsection{Dichotomizing or using more than a single number}
+
+Ways to dichotomize:
 
 \begin{itemize}
   \item Dichotomizing by picking a specific cutpoint,
@@ -140,15 +242,23 @@ simple function of a coefficient).
     ordinal structure used to gain power if fitting a model.
   \item Dichotomizing using quantiles of a reference
     group; for example,
-    ``worse than the median outcome under standard care''
-  \item Simultaneously comparing all quantiles to those of a
-    reference group: ridit analysis
+    ``proportion in the treated group with worse outcomes than the
+    median outcome under standard care''
+\end{itemize}
+
+Ways to use more than a single number to summarize effects:
+
+\begin{itemize}
+  \item Plotting cumulative distribution functions or survival functions
+  \item Plotting ridits, which compare ordinal distributions using a
+    reference group and are closely connected to win probability
     \citep{brossHowUseRidit1958,agrestiAnalysisOrdinalCategorical2010,
       smithsonReceiverOperatingCharacteristic2023,
     jansenRiditAnalysisReview1984}
 \end{itemize}
 
-\subsection{Comparing model-based and nonparametric effect measures}
+\section{Comparing model-based and nonparametric effect measures}
+\label{sec:comparing}
 
 Both of these can be considered ``estimands'', insofar as we consider the
 estimand associated with the model-based effect measures to be given by the
@@ -168,30 +278,39 @@ Nonparametric effect measures may appear to be assumption-free. However
 \begin{itemize}
   \item Assumptions don't need to hold exactly for the model-based
     effect measures to make sense
-  \item In particular, if stochastic dominance holds, we can think of
-    both model-based and nonparametric effect measures as
-    testing the null hypothesis of no effect ``in a particular
-    direction''. A weak interpretation of any particular
-    effect measure
-    is that it supplies this ``direction''.
+    \begin{itemize}
+      \item In particular, if stochastic dominance holds, we can think of
+        both model-based and nonparametric effect measures as
+        testing the null hypothesis of no effect ``in a specific
+        direction''. A weak interpretation of any particular
+        effect measure
+        is that it supplies this ``direction''.
 
-    For example the Wilcoxon test is
-    equivalent to the score test from fitting a proportional odds model.
-    Thus fitting a proportional odds model (or any other model) has a
-    valid null-testing
-    interpretation even if proportional odds doesn't hold.
-  \item Under failure of stochastic dominance (``sign
-    heterogeneity''), \emph{neither} parametric nor nonparametric
-    effect measures make sense, since it doesn't make sense to
-    summarize effects by a single number. Need to dig into the
-    cutpoint-specific effects.
+        For example the Wilcoxon test is
+        equivalent to the score test from fitting a proportional odds model;
+        the implied ``directions from the null'' are the same.
+        Thus fitting a proportional odds model (or any other model) has a
+        valid null-testing
+        interpretation even if proportional odds doesn't hold.
+      \item Under failure of stochastic dominance (``sign
+        heterogeneity''), \emph{neither} parametric nor nonparametric
+        effect measures make sense, since it doesn't make sense to
+        summarize effects by a single number. Need to dig into the
+        cutpoint-specific effects.
+    \end{itemize}
   \item Model-free methods don't define a common scale for comparing
     more than two interventions. For example, model-free effect
     measures can be \emph{nontransitive}, so it's not clear how to
-    use them in $\geq 2$-arm studies
-  \item For the same reason, model-based methods have additional
-    advantages, for example
-    the possibility of adjustment for covariates.
+    use them in $\geq 2$-arm studies.
+
+    That said, when comparing more than two distributions \emph{that
+    can be ordered} (i.e. when $x$ as well as $y$ is ordinal),
+    Somers' $D$ is a generalization of the win difference, Harrell's
+    $c$-index is a generalization of the win probability, and
+    \citet{newsonParametersNonparametricStatistics2002} discusses a
+    generalization of the win ratio.
+
+  \item Model-based methods allow one to adjust for covariates.
 
     When additivity approximately holds, this yields a ``best of both
     worlds'' effect measure that is
@@ -211,16 +330,30 @@ win probability etc. are \emph{relative measures}:
     difference in means of 10 mmHg
   \item Affected by study inclusion criteria (why? probably needs to
     be fleshed out.)
+  \item This may unintentionally make interpreting estimated effect
+    sizes for the purposes of both study planning and interpreting results.
 \end{itemize}
 
 Simulations show a typically very strong association between
-proportional odds ratios and $c$-index
+[double check] log common odds ratios and log win ratios (both of
+which generalize the odds ratio for a binary variable)
 \citep{harrellViolationProportionalOdds2020}.
 
-We should distinguish between effect measures used for \emph{analysis} and for
-\emph{reporting}. It may make sense to report the probabilistic index or a
+We should distinguish between effect measures used for \emph{design
+and decision-making},
+for \emph{analysis}, and for
+\emph{reporting}. For example it might make most sense to design a
+study and define decision rules using a common odds
+ratio/proportional odds model, but to
+additionally report results using the win probability..
+It may make
+sense to report the probabilistic index or a
 single-cutpoint binary outcome even if the analysis is undertaken using a
-proportional odds model.
+proportional odds model. Reporting win statistics based on model fits is
+suggested in \todo{one of}
+\cite{agrestiOrdinalProbabilityEffect2017,agrestiSimpleWaysInterpret2018}
+
+\section{Conclusion}
 
 \newpage
 
