@@ -1,7 +1,8 @@
 {
-    "latex-workshop.latex.outDir": "%DIR%/compiled/",
-    "editor.defaultFormatter": null,
-    "latex-workshop.formatting.latex": "tex-fmt",
-    "latex-workshop.formatting.tex-fmt.args": [],
-    "editor.formatOnSave": true
+  "latex-workshop.latex.outDir": "%DIR%/compiled/",
+  "editor.defaultFormatter": null,
+  "latex-workshop.formatting.latex": "tex-fmt",
+  "latex-workshop.formatting.tex-fmt.args": [],
+  "editor.formatOnSave": true,
+  "cSpell.words": ["ECMO", "interpretability"]
 }
