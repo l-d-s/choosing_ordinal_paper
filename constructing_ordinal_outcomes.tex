@@ -22,14 +22,11 @@ Working Group}
 \maketitle
 
 \begin{abstract}
-  Ordinal outcomes or endpoints are an increasingly popular choice in
+  Ordinal outcomes (or ``endpoints'') are an increasingly popular choice in
   clinical trials.
-  They have been recently popular in the study of COVID-19 and in
-  adaptive platform
-  trials.
   This paper is a guide to techniques for constructing ordinal
   outcomes, aimed at clinicians and their statistical collaborators.
-  We categorize and illustrate ways combining existing binary,
+  We categorize and illustrate ways of combining existing binary,
   ordinal, or continuous
   outcomes through three broad mechanisms: sequential composition
   (overriding), hierarchical composition (tie-breaking), and parallel
@@ -49,30 +46,39 @@ Working Group}
 
 \section{Introduction}
 
+\subsection{Ordinal outcomes and their advantages}
+
 Ordinal outcomes (or ``endpoints'') have become increasingly
 prominent in clinical
 resarch, particularly following the COVID-19 pandemic, when ordinal
 scales developed by the WHO and NIAID were used in prominent trials
-of drugs repurposed to treat the disease \todo{cite}. They have also
-been a popular choice in adaptive platform trials \todo{cite}.
+\citep{beigelRemdesivirTreatmentCovid192020,
+marshallMinimalCommonOutcome2020}. They have also
+been used in a number of adaptive platform trials
+\citep{angusREMAPCAPRandomizedEmbedded2020, walkerCodesigningNovelOrdinal2025}.
 
-Ordinal outcomes rank patient outcomes from better to worse, but do
-not compare \emph{differences} in patient outcomes. Thus binary
-outcomes are ordinal, and so are continuous outcomes (though
-``treating them ordinally'' means ignoring numeric values).
+Ordinal outcomes rank patient outcomes from better to worse, but
+\emph{differences} in patient outcomes are
+not treated as meaningful. Binary
+outcomes are ordinal -- they are the simplest kind of
+ordinal outcome -- and so too are continuous outcomes, though
+``treating them ordinally'' involves ignoring their numeric values.
 
-Some advantages of ordinal outcomes are that they can
-\begin{enumerate}
-  \item Provide more information than binary outcomes, making study
-    designs more sensitive and precise, and
-    therefore more efficient and ethical
+Two desirable features of outcomes in general are \emph{validity} and
+\emph{efficiency}.
 
+\textbf{Valid} outcomes reflect
+patient benefit and harm: better/worse outcomes are judged respectively
+better/worse by patients, are objectively respectively better/worse for
+patients, or are reliable surrogates/predictors of outcomes that are
+respectively better/worse for patients.
+
+\begin{itemize}
   \item Allow for the incorporation of intercurrent events into one's primary
-    outcome, avoiding complexities of alternative estimand strategies like
-    principal stratum estimands (particular for truncating events
-    like death) while
-    yielding more statistical efficiency than traditional binary
-    composite outcomes
+    outcome, avoiding complexities of alternative strategies like
+    principal stratum
+    estimands (particular for truncating events like death) while yielding more
+    statistical efficiency than traditional binary composite outcomes
 
   \item Allow for the easy incorporation of safety events into a
     primary outcome, accounting for many different aspects
@@ -87,43 +93,29 @@ Some advantages of ordinal outcomes are that they can
       overriding worst
     outcome) and allow for the combination of longitudinal and timepoint or
     ``state'' outcomes in a single measure.
+\end{itemize}
 
-\end{enumerate}
+\textbf{Efficient} outcomes
+capture sufficient information to discriminate among better- and worse-off
+patients without large sample sizes.
 
-The goal of this manuscript is to serve as a guide for clinicians and trialists
-in developing ordinal outcomes for their studies.
+\begin{itemize}
+  \item Provide more information than binary outcomes, making study
+    designs more sensitive and precise, and
+    therefore more efficient and ethical
+\end{itemize}
 
-It is important to distinguish ``outcomes'' and ``effect measures'' -- both
-sometimes referred to under the banner of ``endpoints''. Here we
-focus on outcomes; we discuss endpoints in a separate paper \todo{cite}.
+For the purposes of this
+article, set aside ease of collection, low missingess, objective
+ascertainability, etc.
 
-Another goal is to situate the literature around ``generalized
-pairwise comparisons of prioritized outcomes''
-\citep{buyseGeneralizedPairwiseComparisons2022}--including win ratio
-\citep{pocockWinRatioNew2012} and Desirability of Outcome Ranking (DOOR)
-methods \citep{evansDesirabilityOutcomeRanking2015,
-ongUnlockingDOORHow2023}--within the broader context of ordinal outcomes and
-endpoints.
+A key feature of ordinal outcomes is the ease with which they can be
+\emph{combined}.
 
 \subsection{Desiderata for (ordinal) outcomes: validity and efficiency}
 
 We begin with some general desiderata for outcomes and effect measures in
 clinical studies.
-
-We want outcomes that
-\begin{enumerate}
-  \item are \textbf{valid} in that they reflect patient benefit and harm:
-    better/worse outcomes are judged respectively better/worse by patients, are
-    objectively respectively better/worse for patients, or are reliable
-    surrogates/predictors of outcomes that are respectively better/worse for
-    patients
-  \item are \textbf{efficient} in the sense of capturing
-    sufficient information to
-    discriminate among better- and worse-off patients without large
-    sample sizes.
-\end{enumerate}
-(For the purposes of this article, set aside ease of collection, low
-missingess, objective ascertainability, etc.)
 
 An example of an outcome which is valid but inefficient might be
 death as a binary outcome in a context where deaths
@@ -133,25 +125,39 @@ An example of an outcome which is efficient but which may be invalid
 might be continuously-measured concentrations of a biomarker which is a poor
 surrogate for disease progression.
 
-One point of view is that one would ``ideally'' analyze ordinal outcomes by
-reporting the associated expected utilities \todo{cite Berry talk; example of
-utility-weighted Rankin scale} and that since existing ordinal methods supply
-such utilities implicitly why not just supply them explicitly. A counterpoint
-is that the methods do not, in fact, supply utilities implicitly.
-Another is that ordinal outcomes let one ``hedge'' about precise
-utillities and this is OK.
-
 \subsection{The iterative process of constructing and validating}
 
-We want to distinguish \emph{choosing} or \emph{constructing} an outcome/effect
-measure from \emph{validating} the outcome/effect measure using external data.
-This paper is about the first task, choosing (or constructing) the outcome and
+We want to distinguish \emph{choosing} or \emph{constructing} an
+outcome/effect
+measure from \emph{validating} the outcome/effect measure using
+external data.
+This paper is about the first task, choosing (or constructing)
+the outcome and
 effect measure. In practice choosing an outcome and effect measure and
 validating that outcome and effect measure in pre-trial data will be an
-iterative process. Our focus in this paper is on the ``positive'' side of the
+iterative process. Our focus in this paper is on the ``positive''
+side of the
 process--namely coming up with, and tweaking, proposed outcomes and effect
 measures--rather than the ``negative'' side, namely testing or checking
 proposals with data to assess whether they have desired properties.
+
+\subsection{Objectives/contributions}
+
+The goal of this manuscript is to serve as a guide for clinicians
+and trialists
+in developing ordinal outcomes for their studies.
+
+Another goal is to situate the literature around ``generalized
+pairwise comparisons of prioritized outcomes''
+\citep{buyseGeneralizedPairwiseComparisons2022}--including win ratio
+\citep{pocockWinRatioNew2012} and Desirability of Outcome Ranking (DOOR)
+methods \citep{evansDesirabilityOutcomeRanking2015,
+ongUnlockingDOORHow2023}--within the broader context of ordinal outcomes and
+endpoints.
+
+It is important to distinguish ``outcomes'' and ``effect measures'' -- both
+sometimes referred to under the banner of ``endpoints''. Here we
+focus on outcomes; we discuss endpoints in a separate paper \todo{cite}.
 
 \section{Reasons to combine (or fine-grain) ordinal outcomes}
 
@@ -193,7 +199,8 @@ Example: REMAP-CAP: organ-free survival, overridden by death
 
 Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
 efficiency (variance) of an unadjusted treatment comparison using an ordinal
-versus continuous outcome in the proportional odds model is given by $1 - \sum
+versus continuous outcome in the proportional odds model is given
+by $1 - \sum
 \overline p_c^3$ where $\overline p_c$ is the marginal probability (averaged
 over control and experimental groups) of outcome category $c$.
 Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
@@ -220,7 +227,8 @@ probability $\overline{p}_{\max} = \max \overline{p}_c$. See Figure
     category probability $p_\text{max}$. Results are based on
     estimating a common odds ratio or testing stochastic ordering
     using the Mann-Whitney-Wilcoxon test. The upper bound (best case
-    relative efficiency for a given $p_\text{max}$) is always achieved in the
+    relative efficiency for a given $p_\text{max}$) is always
+    achieved in the
     limit of infinitely many categories ($C = \infty$). The lower bound
     is always achieved when the number of categories is as small as
     possible for a given $p_\text{max}$; in particular when
@@ -228,9 +236,11 @@ probability $\overline{p}_{\max} = \max \overline{p}_c$. See Figure
   \label{fig:p_max}
 \end{figure}
 
-Thus simple advice is: for statistical efficiency, try to make the proportion
+Thus simple advice is: for statistical efficiency, try to make
+the proportion
 of patients in the largest category small. However a converse is: if the
-proportion of patients in the largest category is small, not much is gained by
+proportion of patients in the largest category is small, not much
+is gained by
 fine-graining; a coarser outcome might be easier to communicate.
 
 \subsection{Augmenting a state or time-to-event outcome with
@@ -242,17 +252,23 @@ Trajectory variables, including times-to-event, summarize patient
 state over a timecourse. (In practice ``state'' variables are
 actually summaries over an interval like ``day 28 post-randomization''.)
 
-Trajectory and state variables can be incorporated into an ordinal outcome. For
-example (from PASSPORT; Figure \ref{fig:passport_outcome}) ``worst pSOFA while
+Trajectory and state variables can be incorporated into an
+ordinal outcome. For
+example (from PASSPORT; Figure \ref{fig:passport_outcome})
+``worst pSOFA while
 hospitalized until day 28'' and ``length of hospitalization'', which are
-longitudinal variables (summary of a trajectory), are combined with the day 28
+longitudinal variables (summary of a trajectory), are combined
+with the day 28
 state variable ``death''. The REMAP-CAP outcome is similar (Figure
 \ref{fig:remap_cap_override}).
 
-Most time-to-event analyses are in fact analyses of an ordinal outcome. The Cox
+Most time-to-event analyses are in fact analyses of an ordinal
+outcome. The Cox
 model for time-to-event data treats time as ordinal: because the baseline
-hazard is not modelled, the model itself is invariant to monotone rescalings of
-the time axis, and the (partial) likelihood (ignoring ties) depends only on the
+hazard is not modelled, the model itself is invariant to monotone
+rescalings of
+the time axis, and the (partial) likelihood (ignoring ties)
+depends only on the
 ranks of the data (i.e., is a marginal likelihood). The Cox model is
 essentially an ordinal stopping ratio model with complementary log-log link.
 (Plus handling right-censoring.)
@@ -323,12 +339,14 @@ Examples:
   \item \textbf{Sequential composition} Outcome from PASSPORT,
     depicted in Figure
     \ref{fig:passport_outcome}, is given by
-    \[ \text{day 28 status} \leftarrow \text{max pSOFA} \leftarrow \text{days
+    \[ \text{day 28 status} \leftarrow \text{max pSOFA}
+      \leftarrow \text{days
       hospitalized}
     \]
   \item
     \textbf{Hierarchical composition} ``Angina Symptom Score'' outcome from
-    \citet{rajkumarPlaceboControlledTrialPercutaneous2023}, depicted in Figure
+    \citet{rajkumarPlaceboControlledTrialPercutaneous2023},
+    depicted in Figure
     \ref{fig:rajkumar_et_al_outcome}, is given by \[
       \text{adverse clinical event} \leftarrow ((\text{units of
     antianginal medication}) / (\text{episodes of angina})) \]
@@ -336,13 +354,15 @@ Examples:
   \item \textbf{Parallel composition} BANDICOOT outcome
     \citep{walkerCodesigningNovelOrdinal2025}, which is
     \[
-      (\text{death, graft loss, or relapse}) \leftarrow (\text{viraemia} \;|\;
+      (\text{death, graft loss, or relapse}) \leftarrow
+      (\text{viraemia} \;|\;
       \text{CD4+ count} \;|\; \text{organ support})
     \]
 \end{itemize}
 
 Aside: \citet{wittkowskiCombiningSeveralOrdinal2004} consider combining
-ordinal variables into \emph{partial} orders. Beyond the scope of this paper.
+ordinal variables into \emph{partial} orders. Beyond the scope of
+this paper.
 
 \begin{figure}
   \includegraphics[width=7in]{passport_ordinal_outcome_sequential.pdf}
@@ -361,7 +381,7 @@ ordinal variables into \emph{partial} orders. Beyond the scope of this paper.
   \caption{\textbf{Hierarchical composition (complete tie-breaking)
       illustrated with the
     the ORBITA-2 outcome.} ``Angina
-    Symptom Score'' ordinal outocome develped in
+    Symptom Score'' ordinal outcome develped in
     \citep{rajkumarPlaceboControlledTrialPercutaneous2023}. This illustrates
     (1) hierarchical composition or complete tie-breaking (of units
       of antianginal medication by
@@ -370,9 +390,11 @@ ordinal variables into \emph{partial} orders. Beyond the scope of this paper.
   \label{fig:rajkumar_et_al_outcome}
 \end{figure}
 
-\begin{figure} \includegraphics[width=7in]{parallel_composition_bandicoot.pdf}
+\begin{figure}
+  \includegraphics[width=7in]{parallel_composition_bandicoot.pdf}
   % \includegraphics[width=1in]{passport_ordinal_outcome_colorbar.png}
-  \caption{\textbf{Parallel composition illustrated with the BANDICOOT outcome}.
+  \caption{\textbf{Parallel composition illustrated with the
+    BANDICOOT outcome}.
     Ordinal outcome used in the planned BANDICOOT adaptive platform trial
     \citep{walkerCodesigningNovelOrdinal2025}. Illustrates \textbf{parallel
   composition} of component outcomes.} \label{fig:parallel_bandicoot}
@@ -382,7 +404,8 @@ ordinal variables into \emph{partial} orders. Beyond the scope of this paper.
 
 One option: convert each input factor to a numeric value then sum them up.
 
-A specific example of this, described e.g. by \citet{ongUnlockingDOORHow2023} in
+A specific example of this, described e.g. by
+\citet{ongUnlockingDOORHow2023} in
 the infectious disease context, is counting events of a particular
 type (corresponds to converting the presence/absence of the event to
 a 1/0 binary variable).
@@ -432,7 +455,8 @@ Consider some of the critiques of win methods in
   \item Situating methods in their proper context can help
     trialists make informed choices among them
   \item Win methods can make use of
-    plots and diagnostics for general ordinal outcomes, for the \emph{implicit}
+    plots and diagnostics for general ordinal outcomes, for the
+    \emph{implicit}
     ordinal variable
     \begin{itemize}
       \item comparative CDF or ``survival''
@@ -440,7 +464,8 @@ Consider some of the critiques of win methods in
         monotonicity. \citet{follmannAnalysisOrderedComposite2020}
         also does this.
       \item ridit plots
-        \citep{brossHowUseRidit1958,jansenRiditAnalysisReview1984} relative to a
+        \citep{brossHowUseRidit1958,jansenRiditAnalysisReview1984}
+        relative to a
         reference group, which should allow one to display both full
         eCDF information
         and also win statistics (based on the interpretation of the
@@ -448,22 +473,28 @@ Consider some of the critiques of win methods in
         probability)
     \end{itemize}e.g.
   \item Ordinal regression models can use win
-    methods for model checking; it is also possible to present a model-based win
+    methods for model checking; it is also possible to present a
+    model-based win
     effect measure alongside a common odds ratio for example. See
-    \citep{agrestiOrdinalProbabilityEffect2017} for example, which covers both
+    \citep{agrestiOrdinalProbabilityEffect2017} for example,
+    which covers both
     latent variable and predicted probability versions.
   \item The outcomes
-    \emph{implicitly} constructed using DOOR and win methods may contain many
-    levels, and may contain levels where an effect is not so meaningful (e.g.
+    \emph{implicitly} constructed using DOOR and win methods may
+    contain many
+    levels, and may contain levels where an effect is not so
+    meaningful (e.g.
     time-to-death when the followup time is short). By \emph{explicitly}
-    constructing the associated ordinal outcome one might be forced to be more
+    constructing the associated ordinal outcome one might be
+    forced to be more
     aware of this
   \item What is a reasonable win analysis of a specific component
     score? From the traditional ordinal endpoint school of thought
     what would make
     most sense is to \emph{only tie-break for the lowest and highest
       levels of that
-    score}, and e.g. plot eCDFs of this new variable. Is this what the plots do
+    score}, and e.g. plot eCDFs of this new variable. Is this
+    what the plots do
     that break down wins and losses by component score?
 \end{itemize}
 
@@ -503,7 +534,18 @@ aren't really a problem for model fitting with modern software.)
 Coarsening, including combining levels and replacing complete
 tie-breaks with overrides, could help with this.
 
-\section{Conclusions}
+\section{Discussion and Conclusions}
+
+One point of view is that one would ``ideally'' analyze ordinal outcomes by
+reporting the associated expected utilities \todo{cite Berry
+  talk; example of
+utility-weighted Rankin scale} and that since existing ordinal
+methods supply
+such utilities implicitly why not just supply them explicitly. A
+counterpoint
+is that the methods do not, in fact, supply utilities implicitly.
+Another is that ordinal outcomes let one ``hedge'' about precise
+utillities and this is OK.
 
 \newpage
 
