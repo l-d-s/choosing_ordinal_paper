@@ -22,72 +22,77 @@ Working Group}
 \maketitle
 
 \begin{abstract}
-  Ordinal outcomes (or ``endpoints'') are an increasingly popular choice in
+  Ordinal outcomes are an increasingly popular choice for
   clinical trials.
   This paper is a guide to techniques for constructing ordinal
-  outcomes, aimed at clinicians and their statistical collaborators.
-  We categorize and illustrate ways of combining existing binary,
+  outcomes out of pre-existing components, aimed at clinicians and their
+  statistical collaborators.
+  We discuss three broad mechanisms for combining existing binary,
   ordinal, or continuous
-  outcomes through three broad mechanisms: sequential composition
-  (overriding), hierarchical composition (tie-breaking), and parallel
-  composition.
-  We discuss how this fine-graining impacts validity and efficiency, and also
-  suggest reasons why coarser outcomes might be preferred.
-  We also situate ``generalized pairwise comparisons'' and
-  ``prioritized outcomes'' approaches, like the win
-  ratio and desirability of outcome
-  ranking (DOOR) methodologies, in the broader context of ordinal
-  outcomes, suggesting that methods and approaches from each field
-  might be useful in the other.
+  outcomes into an ordinal composite---overriding (or
+  ``sequential composition''), tie-breaking (or ``hierarchical
+  composition''), and what we term ``parallel
+  composition''---and illustrate each mechanism with a real-world example.
+  We discuss how these mechanisms can improve the validity and
+  efficiency of ordinal outcomes, but also why coarsening outcomes by
+  combining levels might be preferred in practice.
+  Our approach is closely related to the literature on prioritized
+  outcomes (like win methods and
+    desirability of outcome
+  ranking methodologies), but we focus on the task of
+  constructing ordinal
+  outcomes and distinguish this from the related tasks of choosing
+  effect measures and estimators and
+  handling censoring.
 \end{abstract}
-
+\newpage
 \tableofcontents
 \newpage
 
 \section{Introduction}
 
-\subsection{Ordinal outcomes and their advantages}
+\subsection{Ordinal outcomes, their recent popularity and advantages}
 
 Ordinal outcomes (or ``endpoints'') have become increasingly
 prominent in clinical
 resarch, particularly following the COVID-19 pandemic, when ordinal
 scales developed by the WHO and NIAID were used in prominent trials
 \citep{beigelRemdesivirTreatmentCovid192020,
-marshallMinimalCommonOutcome2020}. They have also
+marshallMinimalCommonOutcome2020}. Ordinal outcomes have also
 been used in a number of adaptive platform trials
-\citep{angusREMAPCAPRandomizedEmbedded2020, walkerCodesigningNovelOrdinal2025}.
+\citep{angusREMAPCAPRandomizedEmbedded2020,
+walkerCodesigningNovelOrdinal2025}.
 
 Ordinal outcomes rank patient outcomes from better to worse, but
 \emph{differences} in patient outcomes are
-not treated as meaningful. Binary
-outcomes are ordinal -- they are the simplest kind of
-ordinal outcome -- and so too are continuous outcomes, though
-``treating them ordinally'' involves ignoring their numeric values.
+not treated as meaningful.
 
 Two desirable features of outcomes in general are \emph{validity} and
 \emph{efficiency}.
+\emph{Valid} outcomes reflect
+patient benefit and harm; \emph{efficient} outcomes
+are able to discriminate among better- and worse-off
+patients without large sample sizes.
 
-\textbf{Valid} outcomes reflect
-patient benefit and harm: better/worse outcomes are judged respectively
-better/worse by patients, are objectively respectively better/worse for
-patients, or are reliable surrogates/predictors of outcomes that are
-respectively better/worse for patients.
+A great strength of ordinal outcomes is the ease with which they can
+be combined.
+
+This can help with validity by
 
 \begin{itemize}
-  \item Allow for the incorporation of intercurrent events into one's primary
+  \item \emph{Handle intercurrent events} by incorporating them into a primary
     outcome, avoiding complexities of alternative strategies like
     principal stratum
-    estimands (particular for truncating events like death) while yielding more
-    statistical efficiency than traditional binary composite outcomes
+    estimands (particular for truncating events like death) while
+    yielding more
+    statistical efficiency than traditional binary composite outcomes.
 
-  \item Allow for the easy incorporation of safety events into a
-    primary outcome, accounting for many different aspects
-    of benefit/harm; at the same time, ordinal outcomes can be
-    analyzed without a
-    fully-specified utility function, which may require more
-    extensive development and validation or may vary widely across patients.
+  \item \emph{Jointly summarizing efficacy and safety} by incorporating
+    safety events into a
+    primary outcome.
 
-  \item Allow for the combination of discrete and continous outcome
+  \item \emph{Combining outcome measures of different types} Allow
+    for the combination of discrete and continous outcome
     measures (for
       example a numerical quality of life scale with death as the
       overriding worst
@@ -95,9 +100,7 @@ respectively better/worse for patients.
     ``state'' outcomes in a single measure.
 \end{itemize}
 
-\textbf{Efficient} outcomes
-capture sufficient information to discriminate among better- and worse-off
-patients without large sample sizes.
+Moreover it can help with efficiency by
 
 \begin{itemize}
   \item Provide more information than binary outcomes, making study
@@ -109,37 +112,14 @@ For the purposes of this
 article, set aside ease of collection, low missingess, objective
 ascertainability, etc.
 
-A key feature of ordinal outcomes is the ease with which they can be
-\emph{combined}.
-
-\subsection{Desiderata for (ordinal) outcomes: validity and efficiency}
-
-We begin with some general desiderata for outcomes and effect measures in
-clinical studies.
-
 An example of an outcome which is valid but inefficient might be
 death as a binary outcome in a context where deaths
 are rare.
 
 An example of an outcome which is efficient but which may be invalid
 might be continuously-measured concentrations of a biomarker which is a poor
-surrogate for disease progression.
-
-\subsection{The iterative process of constructing and validating}
-
-We want to distinguish \emph{choosing} or \emph{constructing} an
-outcome/effect
-measure from \emph{validating} the outcome/effect measure using
-external data.
-This paper is about the first task, choosing (or constructing)
-the outcome and
-effect measure. In practice choosing an outcome and effect measure and
-validating that outcome and effect measure in pre-trial data will be an
-iterative process. Our focus in this paper is on the ``positive''
-side of the
-process--namely coming up with, and tweaking, proposed outcomes and effect
-measures--rather than the ``negative'' side, namely testing or checking
-proposals with data to assess whether they have desired properties.
+surrogate for disease progression, or a continuous outcome that
+excludes mortality.
 
 \subsection{Objectives/contributions}
 
@@ -155,9 +135,27 @@ methods \citep{evansDesirabilityOutcomeRanking2015,
 ongUnlockingDOORHow2023}--within the broader context of ordinal outcomes and
 endpoints.
 
-It is important to distinguish ``outcomes'' and ``effect measures'' -- both
+\subsubsection{Non-objectives}
+
+\paragraph{Outcomes versus effect measures} It is important to
+distinguish ``outcomes'' and ``effect measures'' -- both
 sometimes referred to under the banner of ``endpoints''. Here we
 focus on outcomes; we discuss endpoints in a separate paper \todo{cite}.
+
+\paragraph{Constructing versus validating} We want to distinguish
+\emph{choosing} or \emph{constructing} an
+outcome/effect
+measure from \emph{validating} the outcome/effect measure using
+external data.
+This paper is about the first task, choosing (or constructing)
+the outcome and
+effect measure. In practice choosing an outcome and effect measure and
+validating that outcome and effect measure in pre-trial data will be an
+iterative process. Our focus in this paper is on the ``positive''
+side of the
+process--namely coming up with, and tweaking, proposed outcomes and effect
+measures--rather than the ``negative'' side, namely testing or checking
+proposals with data to assess whether they have desired properties.
 
 \section{Reasons to combine (or fine-grain) ordinal outcomes}
 
@@ -245,6 +243,16 @@ fine-graining; a coarser outcome might be easier to communicate.
 
 \subsection{Augmenting a state or time-to-event outcome with
 longitudinal information}
+
+The process of combining ordinal outcomes is more flexible than it
+might seem, because many different kinds of outcomes can be treated as ordinal
+or summarized in ordinal form. Binary
+outcomes are ordinal -- they are the simplest kind of
+ordinal outcome -- and so too are continuous outcomes, though
+``treating them ordinally'' involves ignoring their numeric values.
+Longitudinal trajectory-outcomes can be summarized ordinally---for
+example ``worst measurement in the first 28 days of
+hospitalization''---and combined with ``state'' outcomes.
 
 Distinguish between ``state'' and ``trajectory'' outcomes. State
 variables summarize patient outcomes at a particular moment in time.
@@ -367,7 +375,7 @@ this paper.
 \begin{figure}
   \includegraphics[width=7in]{passport_ordinal_outcome_sequential.pdf}
   % \includegraphics[width=1in]{passport_ordinal_outcome_colorbar.png}
-  \caption{\textbf{Sequential composition (overriding) illustrated
+  \caption{\textbf{Overriding (sequential composition) illustrated
     with the PASSPORT outcome} Ordinal outcome used in the planned
     PASSPORT adaptive
     platform trial. This illustrates sequential composition/overriding:
@@ -378,7 +386,7 @@ this paper.
 
 \begin{figure}
   \includegraphics[width=6in]{rajkumar_et_al_outcome.png}
-  \caption{\textbf{Hierarchical composition (complete tie-breaking)
+  \caption{\textbf{Tie-breaking (hierarchical composition)
       illustrated with the
     the ORBITA-2 outcome.} ``Angina
     Symptom Score'' ordinal outcome develped in
@@ -521,7 +529,7 @@ ordinal outcome does not mean assuming that the two outcomes have the
 their utilities. (This was something clinicians asked about more than once.)
 
 Also, we "chunk" longer hospital stays more aggressively to avoid
-small categories, for interpretability's sake.
+small categories, for the sake of interpretability.
 
 \subsection{Coarsening for ease of communication}
 
@@ -536,6 +544,13 @@ tie-breaks with overrides, could help with this.
 
 \section{Discussion and Conclusions}
 
+Our approach is closely related to that of
+\citet{follmannAnalysisOrderedComposite2020},
+who explicitly consider the ordinal outcome implicitly constructed by
+win methods from a time-to-event analysis of ordered events, and show
+how right-censoring of event times induces interval censoring of the
+cosntructed outcome.
+
 One point of view is that one would ``ideally'' analyze ordinal outcomes by
 reporting the associated expected utilities \todo{cite Berry
   talk; example of
@@ -545,7 +560,9 @@ such utilities implicitly why not just supply them explicitly. A
 counterpoint
 is that the methods do not, in fact, supply utilities implicitly.
 Another is that ordinal outcomes let one ``hedge'' about precise
-utillities and this is OK.
+utillities and this is OK:
+fully-specified utility function may require more
+extensive development and validation or may vary widely across patients.
 
 \newpage
 
