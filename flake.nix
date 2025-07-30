@@ -108,8 +108,8 @@
                 *.tex
             '';
             installPhase = ''
-              mkdir -p ${out}
-              cp paper.* ${out}/
+              mkdir -p $out
+              cp paper.* $out/
             '';
           };
         };
