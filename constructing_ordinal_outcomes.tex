@@ -12,7 +12,7 @@
 \addbibresource{references.bib}
 \graphicspath{{fig/}}
 
-\title{Constructing ordinal outcomes for clinical trials}
+\title{Constructing composite ordinal outcomes for clinical trials}
 \author{Leon Di Stefano + Ordinal
 Working Group}
 \date{\today}
@@ -22,28 +22,31 @@ Working Group}
 \maketitle
 
 \begin{abstract}
-  Ordinal outcomes are an increasingly popular choice for
-  clinical trials.
-  This paper is a guide to techniques for constructing ordinal
-  outcomes out of pre-existing components, aimed at clinicians and their
-  statistical collaborators.
-  We discuss three broad mechanisms for combining existing binary,
-  ordinal, or continuous
-  outcomes into an ordinal composite---overriding (or
-  ``sequential composition''), tie-breaking (or ``hierarchical
-  composition''), and what we term ``parallel
-  composition''---and illustrate each mechanism with a real-world example.
-  We discuss how these mechanisms can improve the validity and
-  efficiency of ordinal outcomes, but also why coarsening outcomes by
-  combining levels might be preferred in practice.
-  Our approach is closely related to the literature on prioritized
-  outcomes (like win methods and
-    desirability of outcome
-  ranking methodologies), but we focus on the task of
-  constructing ordinal
-  outcomes and distinguish this from the related tasks of choosing
-  effect measures and estimators and
-  handling censoring.
+
+  \todo{Suggested framing of this based on 2025-08-07 meeting with
+    Kate and Rob is: advice on constructing ordinal outcomes from
+    pre-existing components. In particular, ``constructing'' consists
+    of the steps before ``validating'' (using external data). The two
+    main headings are proposed to be: ``combining existing outcomes''
+  and ``how many categories?''}
+
+  Ordinal outcomes are an increasingly popular choice for clinical trials. This
+  paper is a guide to techniques for constructing ordinal outcomes out of
+  pre-existing components, aimed at clinicians and their statistical
+  collaborators. We discuss three broad mechanisms for combining existing
+  ordinal outcomes---including binary, continuous, and time to event
+  outcomes---into an ordinal composite: overriding (or ``sequential
+  composition''), tie-breaking (or ``hierarchical composition''), and what we
+  term ``parallel composition''. We illustrate these mechanisms with examples
+  from the literature and discuss how constructing fine-grained composite
+  outcomes can improve validity and efficiency---but also why coarser outcomes
+  might sometimes be preferred in practice. Finally, we connect these general
+  methods for combining ordinal outcomes with the ``prioritized outcomes''
+  literature (including win-based and desirability of outcome ranking (DOOR)
+  methodologies), clearly delineating the task of constructing composite
+  ordinal outcomes from the related but distinct tasks of choosing effect
+  measures, choosing estimators, and handling censoring.
+
 \end{abstract}
 \newpage
 \tableofcontents
@@ -53,26 +56,24 @@ Working Group}
 
 \subsection{Ordinal outcomes, their recent popularity and advantages}
 
-Ordinal outcomes (or ``endpoints'') have become increasingly
-prominent in clinical
-resarch, particularly following the COVID-19 pandemic, when ordinal
-scales developed by the WHO and NIAID were used in prominent trials
-\citep{beigelRemdesivirTreatmentCovid192020,
-marshallMinimalCommonOutcome2020}. Ordinal outcomes have also
-been used in a number of adaptive platform trials
-\citep{angusREMAPCAPRandomizedEmbedded2020,
-walkerCodesigningNovelOrdinal2025}.
-
-Ordinal outcomes rank patient outcomes from better to worse, but
-\emph{differences} in patient outcomes are
-not treated as meaningful.
+Ordinal outcomes (or endpoints) rank patients trajectories from better to
+worse, but do not treat \emph{differences} in individual patient outcomes as
+meaningful. Some ordinal outcomes have a long history in specific disease
+areas, for example the modified Rankin scale in acute stroke trials
+\citep{broderickEvolutionModifiedRankin2017}, and ordinal outcomes have become
+increasingly prominent in clinical resarch following the COVID-19 pandemic when
+disease-specific ordinal outcome scales were developed by the WHO and NIAID
+\citep{beigelRemdesivirTreatmentCovid192020, marshallMinimalCommonOutcome2020}.
+Ordinal outcomes have also been used in a number of adaptive platform trials
+\citep{angusREMAPCAPRandomizedEmbedded2020, walkerCodesigningNovelOrdinal2025}.
 
 Two desirable features of outcomes in general are \emph{validity} and
-\emph{efficiency}.
-\emph{Valid} outcomes reflect
-patient benefit and harm; \emph{efficient} outcomes
-are able to discriminate among better- and worse-off
-patients without large sample sizes.
+\emph{efficiency}. \emph{Valid} outcomes reflect patient benefit and harm;
+\emph{efficient} outcomes are able to discriminate among better- and worse-off
+patients with relatively small sample sizes. (Strictly speaking efficiency is a
+  property not of outcomes themselves but of estimators of effect measures for
+  summarizing differences in outcome distribution---more on this in
+\ref{sec:prioritized_outcomes}.)
 
 A great strength of ordinal outcomes is the ease with which they can
 be combined.
@@ -89,7 +90,8 @@ This can help with validity by
 
   \item \emph{Jointly summarizing efficacy and safety} by incorporating
     safety events into a
-    primary outcome.
+    primary outcome; this might be particularly useful in pragmatic
+    contexts or where side-effects of an intervention are difficult to identify.
 
   \item \emph{Combining outcome measures of different types} Allow
     for the combination of discrete and continous outcome
@@ -108,10 +110,6 @@ Moreover it can help with efficiency by
     therefore more efficient and ethical
 \end{itemize}
 
-For the purposes of this
-article, set aside ease of collection, low missingess, objective
-ascertainability, etc.
-
 An example of an outcome which is valid but inefficient might be
 death as a binary outcome in a context where deaths
 are rare.
@@ -123,41 +121,43 @@ excludes mortality.
 
 \subsection{Objectives/contributions}
 
-The goal of this manuscript is to serve as a guide for clinicians
-and trialists
+The goal of this manuscript is to serve as a guide for clinicians and trialists
 in developing ordinal outcomes for their studies.
 
-Another goal is to situate the literature around ``generalized
-pairwise comparisons of prioritized outcomes''
+Another goal is to situate the literature around ``generalized pairwise
+comparisons of prioritized outcomes''
 \citep{buyseGeneralizedPairwiseComparisons2022}--including win ratio
 \citep{pocockWinRatioNew2012} and Desirability of Outcome Ranking (DOOR)
 methods \citep{evansDesirabilityOutcomeRanking2015,
 ongUnlockingDOORHow2023}--within the broader context of ordinal outcomes and
-endpoints.
+endpoints. These methods as typically presented implicitly bundle
+together 3 distinct things:
+(1) a choice of ordinal outcome or endpoint (composed through
+tie-breaking in the terminology below); (2)
+a choice of effect measure (a.k.a.~target parameter, estimand) based
+on the ``independent pairs'' construction, and (3) a method for
+handling censoring, particularly when the outcomes making up the
+composite include time-to-event information.
 
 \subsubsection{Non-objectives}
 
-\paragraph{Outcomes versus effect measures} It is important to
-distinguish ``outcomes'' and ``effect measures'' -- both
-sometimes referred to under the banner of ``endpoints''. Here we
-focus on outcomes; we discuss endpoints in a separate paper \todo{cite}.
+\paragraph{Outcomes versus effect measures} It is important to distinguish
+``outcomes'' and ``effect measures'' -- both sometimes referred to under the
+banner of ``endpoints''. Here we focus on outcomes; we discuss endpoints in a
+separate paper \todo{cite}.
 
 \paragraph{Constructing versus validating} We want to distinguish
-\emph{choosing} or \emph{constructing} an
-outcome/effect
-measure from \emph{validating} the outcome/effect measure using
-external data.
-This paper is about the first task, choosing (or constructing)
-the outcome and
-effect measure. In practice choosing an outcome and effect measure and
-validating that outcome and effect measure in pre-trial data will be an
-iterative process. Our focus in this paper is on the ``positive''
-side of the
-process--namely coming up with, and tweaking, proposed outcomes and effect
-measures--rather than the ``negative'' side, namely testing or checking
-proposals with data to assess whether they have desired properties.
+\emph{choosing} or \emph{constructing} an outcome/effect measure from
+\emph{validating} the outcome/effect measure using external data. This paper is
+about the first task, choosing (or constructing) the outcome and effect
+measure. In practice choosing an outcome and effect measure and validating that
+outcome and effect measure in pre-trial data will be an iterative process. Our
+focus in this paper is on the ``positive'' side of the process--namely coming
+up with, and tweaking, proposed outcomes and effect measures--rather than the
+``negative'' side, namely testing or checking proposals with data to assess
+whether they have desired properties.
 
-\section{Reasons to combine (or fine-grain) ordinal outcomes}
+\subsection{Reasons to use ordinal outcomes}
 
 \subsection{Capturing a broader spectrum of benefit and harm}
 
@@ -165,83 +165,7 @@ Example: PASSPORT outcome (Figure \ref{fig:passport_outcome}),
 designed to capture benefit and harm across sepsis patients with a
 range of different disease severities.
 
-\subsection{Incorporating intercurrent events, especially death,
-for validity}
-
-The intercurrent event could be (1) incorporated as a level (2) used
-for tie-breaking or overriding.
-
-This is a version of the ``composite strategy'' as described in e.g.
-\citet{kahanEstimandsFrameworkPrimer2024}, but we expect it to yield
-more efficiency than creating a \emph{binary} composite outcome.
-
-For example overriding a numeric outcome by death.
-Example: REMAP-CAP: organ-free survival, overridden by death
-(Figure \ref{fig:remap_cap_override}).
-
-\begin{figure}
-  \includegraphics[width=5in]{remap_outcome_extra_cropped.jpg}
-  \caption{\textbf{Overriding a continuous outcome, illustrated by
-    REMAP-CAP}. Outcome from the REMAP-CAP adaptive
-    platform trial
-    \citep{theremap-capinvestigatorsInterleukin6ReceptorAntagonists2021}.
-    Illustrates overriding a numeric ordinal outcome (organ
-    support-free days) by a binary ordinal outcome (death; this is
-    ``sequential composition''), which
-    would also be an intercurrent event. This is another example of
-  sequential composition.}
-  \label{fig:remap_cap_override}
-\end{figure}
-
-\subsection{Increasing efficiency by shrinking the largest category}
-
-Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
-efficiency (variance) of an unadjusted treatment comparison using an ordinal
-versus continuous outcome in the proportional odds model is given
-by $1 - \sum
-\overline p_c^3$ where $\overline p_c$ is the marginal probability (averaged
-over control and experimental groups) of outcome category $c$.
-Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
-categories when the probabilities are all equal: $\overline p_c = 1/C$.
-
-The results are based on estimating a common odds ratio, but in large
-enough samples are equivalent to the Mann-Whitney-Wilcoxon test, and
-therefore to testing the various ``win nulls'' (win probability is
-  0.5, win difference
-is 0, win ratio is 1).
-
-We have simulation results and some maths to show that the value of $\sum_c
-\overline p_c^3$ -- and therefore the (relative) efficiency of the
-ordinal outcome -- is essentially a function of the largest category
-probability $\overline{p}_{\max} = \max \overline{p}_c$. See Figure
-\ref{fig:p_max} for an illustration of the maths.
-
-\begin{figure}
-  \includegraphics[width=6in]{p_max_controls_efficiency.png}
-  \caption{\textbf{Efficiency gains are controlled by the probability
-    of the largest category.} Bounds on the relative efficiency of an
-    ordinal outcome
-    compared to its continuous counterpart as a function of the maximum
-    category probability $p_\text{max}$. Results are based on
-    estimating a common odds ratio or testing stochastic ordering
-    using the Mann-Whitney-Wilcoxon test. The upper bound (best case
-    relative efficiency for a given $p_\text{max}$) is always
-    achieved in the
-    limit of infinitely many categories ($C = \infty$). The lower bound
-    is always achieved when the number of categories is as small as
-    possible for a given $p_\text{max}$; in particular when
-  $p_\text{max} \geq 0.5$ the worst case occurs with 2 categories.}
-  \label{fig:p_max}
-\end{figure}
-
-Thus simple advice is: for statistical efficiency, try to make
-the proportion
-of patients in the largest category small. However a converse is: if the
-proportion of patients in the largest category is small, not much
-is gained by
-fine-graining; a coarser outcome might be easier to communicate.
-
-\subsection{Augmenting a state or time-to-event outcome with
+\subsubsection{Augmenting a state or time-to-event outcome with
 longitudinal information}
 
 The process of combining ordinal outcomes is more flexible than it
@@ -290,10 +214,43 @@ Win methods were inaugurated in
 \citet{finkelsteinCombiningMortalityLongitudinal1999} with the
 express motivation of combining longitudinal and time-to-event information.
 
-\section{Ways to combine ordinal outcomes}
+\subsection{Incorporating intercurrent events, especially death,
+for validity}
 
-\subsection{Sequential,
-hierarchical, \& parallel composition}
+The intercurrent event could be (1) incorporated as a level (2) used
+for tie-breaking or overriding.
+
+This is a version of the ``composite strategy'' as described in e.g.
+\citet{kahanEstimandsFrameworkPrimer2024}, but we expect it to yield
+more efficiency than creating a \emph{binary} composite outcome.
+
+For example overriding a numeric outcome by death.
+Example: REMAP-CAP: organ-free survival, overridden by death
+(Figure \ref{fig:remap_cap_override}).
+
+\begin{figure}
+  \includegraphics[width=5in]{remap_outcome_extra_cropped.jpg}
+  \caption{\textbf{Overriding a continuous outcome, illustrated by
+    REMAP-CAP}. Outcome from the REMAP-CAP adaptive
+    platform trial
+    \citep{theremap-capinvestigatorsInterleukin6ReceptorAntagonists2021}.
+    Illustrates overriding a numeric ordinal outcome (organ
+    support-free days) by a binary ordinal outcome (death; this is
+    ``sequential composition''), which
+    would also be an intercurrent event. This is another example of
+  sequential composition.}
+  \label{fig:remap_cap_override}
+\end{figure}
+
+\subsection{Gaining statistical efficiency}
+
+(See below.)
+
+\section{Three ways to create composite ordinal outcomes}
+
+\subsection{Reviewing the literature for existing/core outcomes}
+
+\subsection{Overriding, tie-breaking, \& parallel composition}
 
 Term in the literature: ``hierarchical composite endpoints''
 \citep{gasparyanDesignAnalysisStudies2022}.
@@ -421,8 +378,86 @@ a 1/0 binary variable).
 This doesn't respect the ordinal nature of the variables. That is, it
 implicitly uses information about the \emph{differences} between levels.
 
-\subsection{Pairwise comparison methods (win and DOOR) implicitly construct
-ordinal outcomes}
+\section{How many levels?}
+
+\subsection{Increasing efficiency by shrinking the largest category}
+
+Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
+efficiency (variance) of an unadjusted treatment comparison using an ordinal
+versus continuous outcome in the proportional odds model is given
+by $1 - \sum
+\overline p_c^3$ where $\overline p_c$ is the marginal probability (averaged
+over control and experimental groups) of outcome category $c$.
+Efficiency is maximized at $1 - 1/C^2$ where $C$ is the total number of
+categories when the probabilities are all equal: $\overline p_c = 1/C$.
+
+The results are based on estimating a common odds ratio, but in large
+enough samples are equivalent to the Mann-Whitney-Wilcoxon test, and
+therefore to testing the various ``win nulls'' (win probability is
+  0.5, win difference
+is 0, win ratio is 1).
+
+We have simulation results and some maths to show that the value of $\sum_c
+\overline p_c^3$ -- and therefore the (relative) efficiency of the
+ordinal outcome -- is essentially a function of the largest category
+probability $\overline{p}_{\max} = \max \overline{p}_c$. See Figure
+\ref{fig:p_max} for an illustration of the maths.
+
+\begin{figure}
+  \includegraphics[width=6in]{p_max_controls_efficiency.png}
+  \caption{\textbf{Efficiency gains are controlled by the probability
+    of the largest category.} Bounds on the relative efficiency of an
+    ordinal outcome
+    compared to its continuous counterpart as a function of the maximum
+    category probability $p_\text{max}$. Results are based on
+    estimating a common odds ratio or testing stochastic ordering
+    using the Mann-Whitney-Wilcoxon test. The upper bound (best case
+    relative efficiency for a given $p_\text{max}$) is always
+    achieved in the
+    limit of infinitely many categories ($C = \infty$). The lower bound
+    is always achieved when the number of categories is as small as
+    possible for a given $p_\text{max}$; in particular when
+  $p_\text{max} \geq 0.5$ the worst case occurs with 2 categories.}
+  \label{fig:p_max}
+\end{figure}
+
+Thus simple advice is: for statistical efficiency, try to make
+the proportion
+of patients in the largest category small. However a converse is: if the
+proportion of patients in the largest category is small, not much
+is gained by
+fine-graining; a coarser outcome might be easier to communicate.
+
+\subsection{Consider efficiency within levels of strong predictors}
+
+\subsection{Coarsening to avoid comparing ambiguous levels (validity)}
+
+In the PASSPORT outcome (Figure \ref{fig:passport_outcome}), for
+example, we include both digit
+amputation and ECMO
+any time within 28 days post-enrollment under the heading of
+``adverse clinical events''.
+
+Including these outcomes within the same level of an
+ordinal outcome does not mean assuming that the two outcomes have the
+\emph{same} utility. Rather it represents \emph{avoiding comparing}
+their utilities. (This was something clinicians asked about more than once.)
+
+Also, we "chunk" longer hospital stays more aggressively to avoid
+small categories, for the sake of interpretability.
+
+\subsection{Coarsening for ease of communication}
+
+Too many levels can make it hard to directly compare meaningful
+proportions/probabilities.
+
+(Outocmes with very many levels -- even up to of the order of 100 --
+aren't really a problem for model fitting with modern software.)
+
+Coarsening, including combining levels and replacing complete
+tie-breaks with overrides, could help with this.
+
+\section{Hierarchical ordinal outcomes and pairwise comparison methods}
 
 Terms to define/distinguish:
 \begin{itemize}
@@ -513,56 +548,29 @@ Disadvantages of generalized pairwise comparison approaches
   \item Regression methods exist, but are newer and less battle-tested
 \end{itemize}
 
-\section{Reasons to coarsen ordinal outcomes}
-
-\subsection{Coarsening to avoid comparing ambiguous levels (validity)}
-
-In the PASSPORT outcome (Figure \ref{fig:passport_outcome}), for
-example, we include both digit
-amputation and ECMO
-any time within 28 days post-enrollment under the heading of
-``adverse clinical events''.
-
-Including these outcomes within the same level of an
-ordinal outcome does not mean assuming that the two outcomes have the
-\emph{same} utility. Rather it represents \emph{avoiding comparing}
-their utilities. (This was something clinicians asked about more than once.)
-
-Also, we "chunk" longer hospital stays more aggressively to avoid
-small categories, for the sake of interpretability.
-
-\subsection{Coarsening for ease of communication}
-
-Too many levels can make it hard to directly compare meaningful
-proportions/probabilities.
-
-(Outocmes with very many levels -- even up to of the order of 100 --
-aren't really a problem for model fitting with modern software.)
-
-Coarsening, including combining levels and replacing complete
-tie-breaks with overrides, could help with this.
+Our approach is closely related to that of
+\citet{follmannAnalysisOrderedComposite2020}, who explicitly consider the
+ordinal outcome implicitly constructed by win methods from a time-to-event
+analysis of ordered events, and show how right-censoring of event times induces
+interval censoring of the cosntructed outcome.
 
 \section{Discussion and Conclusions}
 
-Our approach is closely related to that of
-\citet{follmannAnalysisOrderedComposite2020},
-who explicitly consider the ordinal outcome implicitly constructed by
-win methods from a time-to-event analysis of ordered events, and show
-how right-censoring of event times induces interval censoring of the
-cosntructed outcome.
+For the purposes of this article we have set aside other desiderata for
+outcomes like ease of collection, low missingess, objective ascertainability,
+etc.
 
 One point of view is that one would ``ideally'' analyze ordinal outcomes by
-reporting the associated expected utilities \todo{cite Berry
-  talk; example of
-utility-weighted Rankin scale} and that since existing ordinal
-methods supply
-such utilities implicitly why not just supply them explicitly. A
-counterpoint
-is that the methods do not, in fact, supply utilities implicitly.
-Another is that ordinal outcomes let one ``hedge'' about precise
-utillities and this is OK:
-fully-specified utility function may require more
-extensive development and validation or may vary widely across patients.
+reporting the associated expected utilities \todo{cite Berry talk; example of
+utility-weighted Rankin scale} and that since existing ordinal methods supply
+such utilities implicitly why not just supply them explicitly. A counterpoint
+is that the methods do not, in fact, supply utilities implicitly. Another is
+that ordinal outcomes let one ``hedge'' about precise utilities and this is
+OK: fully-specified utility function may require more extensive development and
+validation or may vary widely across patients.
+
+\subsection{Censoring, consistent measurement, etc. are all
+additional aspects of constructing the outcome that need to be considered}
 
 \newpage
 
