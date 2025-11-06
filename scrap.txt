@@ -1,0 +1,8 @@
+An example of an outcome which is valid but inefficient might be
+death as a binary outcome in a context where deaths
+are rare.
+
+An example of an outcome which is efficient but which may be invalid
+might be continuously-measured concentrations of a biomarker which is a poor
+surrogate for disease progression, or a continuous outcome that
+excludes mortality.

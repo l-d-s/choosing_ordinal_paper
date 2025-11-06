@@ -12,7 +12,7 @@
 \addbibresource{references.bib}
 \graphicspath{{fig/}}
 
-\title{Constructing composite ordinal outcomes for clinical trials}
+\title{Advice on constructing composite ordinal outcomes}
 \author{Leon Di Stefano + Ordinal
 Working Group}
 \date{\today}
@@ -35,17 +35,18 @@ Working Group}
   pre-existing components, aimed at clinicians and their statistical
   collaborators. We discuss three broad mechanisms for combining existing
   ordinal outcomes---including binary, continuous, and time to event
-  outcomes---into an ordinal composite: overriding (or ``sequential
-  composition''), tie-breaking (or ``hierarchical composition''), and what we
-  term ``parallel composition''. We illustrate these mechanisms with examples
-  from the literature and discuss how constructing fine-grained composite
-  outcomes can improve validity and efficiency---but also why coarser outcomes
-  might sometimes be preferred in practice. Finally, we connect these general
-  methods for combining ordinal outcomes with the ``prioritized outcomes''
-  literature (including win-based and desirability of outcome ranking (DOOR)
-  methodologies), clearly delineating the task of constructing composite
-  ordinal outcomes from the related but distinct tasks of choosing effect
-  measures, choosing estimators, and handling censoring.
+  outcomes---into an ordinal composite: (1) overriding (or ``sequential
+  composition''), (2) tie-breaking (or ``hierarchical composition''), and what
+  we term (3) ``parallel composition''. We illustrate each of these mechanisms
+  with examples from the literature. Next, we discuss how constructing
+  fine-grained composite outcomes can improve validity and efficiency---but
+  also why adding levels sometimes has very little effect on efficiency.
+  Finally, we connect these general methods for combining ordinal outcomes with
+  the ``prioritized outcomes'' literature---including win-based and
+  desirability of outcome ranking (DOOR) methodologies---clearly delineating
+  the task of constructing composite ordinal outcomes from the related but
+  distinct tasks of choosing effect measures, choosing estimators, and handling
+  censoring.
 
 \end{abstract}
 \newpage
@@ -58,22 +59,22 @@ Working Group}
 
 Ordinal outcomes (or endpoints) rank patients trajectories from better to
 worse, but do not treat \emph{differences} in individual patient outcomes as
-meaningful. Some ordinal outcomes have a long history in specific disease
-areas, for example the modified Rankin scale in acute stroke trials
-\citep{broderickEvolutionModifiedRankin2017}, and ordinal outcomes have become
-increasingly prominent in clinical resarch following the COVID-19 pandemic when
-disease-specific ordinal outcome scales were developed by the WHO and NIAID
-\citep{beigelRemdesivirTreatmentCovid192020, marshallMinimalCommonOutcome2020}.
+meaningful. Ordinal outcomes have a long history in specific disease
+areas---for example the modified Rankin scale in stroke trials---and have
+become increasingly prominent in clinical resarch following the COVID-19
+pandemic when disease-specific ordinal outcome scales were developed by the WHO
+and NIAID \citep{broderickEvolutionModifiedRankin2017,
+beigelRemdesivirTreatmentCovid192020, marshallMinimalCommonOutcome2020}.
 Ordinal outcomes have also been used in a number of adaptive platform trials
 \citep{angusREMAPCAPRandomizedEmbedded2020, walkerCodesigningNovelOrdinal2025}.
 
 Two desirable features of outcomes in general are \emph{validity} and
-\emph{efficiency}. \emph{Valid} outcomes reflect patient benefit and harm;
-\emph{efficient} outcomes are able to discriminate among better- and worse-off
-patients with relatively small sample sizes. (Strictly speaking efficiency is a
-  property not of outcomes themselves but of estimators of effect measures for
-  summarizing differences in outcome distribution---more on this in
-\ref{sec:prioritized_outcomes}.)
+\emph{efficiency}. \emph{Valid} outcomes reflect differences in patient benefit
+and harm; \emph{efficient} outcomes are able to discriminate among better- and
+worse-off patients with relatively small sample sizes. (Each of these is a
+function of other factors too.)
+
+Ordinal outcomes have the potential to
 
 A great strength of ordinal outcomes is the ease with which they can
 be combined.
@@ -109,15 +110,6 @@ Moreover it can help with efficiency by
     designs more sensitive and precise, and
     therefore more efficient and ethical
 \end{itemize}
-
-An example of an outcome which is valid but inefficient might be
-death as a binary outcome in a context where deaths
-are rare.
-
-An example of an outcome which is efficient but which may be invalid
-might be continuously-measured concentrations of a biomarker which is a poor
-surrogate for disease progression, or a continuous outcome that
-excludes mortality.
 
 \subsection{Objectives/contributions}
 
@@ -246,7 +238,7 @@ Example: REMAP-CAP: organ-free survival, overridden by death
 
 (See below.)
 
-\section{Three ways to create composite ordinal outcomes}
+\section{Three ways to combine existing ordinal scales}
 
 \subsection{Reviewing the literature for existing/core outcomes}
 
@@ -380,7 +372,8 @@ implicitly uses information about the \emph{differences} between levels.
 
 \section{How many levels?}
 
-\subsection{Increasing efficiency by shrinking the largest category}
+\subsection{More levels: increasing efficiency by
+shrinking the largest category proportion}
 
 Theory of \citep{whiteheadSampleSizeCalculations1993} says that the relative
 efficiency (variance) of an unadjusted treatment comparison using an ordinal
@@ -430,9 +423,18 @@ fine-graining; a coarser outcome might be easier to communicate.
 
 This should also hold \emph{within strata}.
 
-\subsection{Consider efficiency within levels of strong predictors}
+\subsection{More levels: Consider efficiency within levels of strong predictors}
 
-\subsection{Coarsening to avoid comparing ambiguous levels (validity)}
+\begin{figure}
+  \includegraphics[width=7in]{stratified_efficiency_plots.png}
+  \caption{\textbf{Overriding (sequential composition) illustrated
+    with the PASSPORT outcome} Comparison of the ordinal outcome used
+  in PASSPORT (depicted in Figure \ref{fig:passport_outcome})} with a
+  coarsened 4-level version, stratified by Australisian Triage Scale category.
+  \label{fig:stratified_efficiency}
+\end{figure}
+
+\subsection{Fewer levels: avoid comparing ambiguous levels (validity)}
 
 In the PASSPORT outcome (Figure \ref{fig:passport_outcome}), for
 example, we include both digit
@@ -448,7 +450,7 @@ their utilities. (This was something clinicians asked about more than once.)
 Also, we "chunk" longer hospital stays more aggressively to avoid
 small categories, for the sake of interpretability.
 
-\subsection{Coarsening for ease of communication}
+\subsection{Fewer levels: ease of communication}
 
 Too many levels can make it hard to directly compare meaningful
 proportions/probabilities.
@@ -459,7 +461,7 @@ aren't really a problem for model fitting with modern software.)
 Coarsening, including combining levels and replacing complete
 tie-breaks with overrides, could help with this.
 
-\section{Hierarchical ordinal outcomes and pairwise comparison methods}
+\section{Composite ordinal outcomes and ``win'' methods}
 
 Terms to define/distinguish:
 \begin{itemize}
